@@ -45,28 +45,9 @@
             </div>
         </div>
        
-        <div class="spacer"></div>
-    <!-- <nav class="navbar">
-
-        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
-  {% csrf_token %}
-  <input name="next" type="hidden" value="{{ request.path }}" />
-  {% get_current_language as CURRENT_LANG %}
-  <button type="submit" class="lang-switch a-button" style="
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    font: inherit;
-    color: inherit;
-  ">
-    <div class="lang-box">
-      {% if CURRENT_LANG == 'en' %}RU{% else %}EN{% endif %}
-    </div>
-  </button>
-</form>
-        <div class="spacer"><p>Текущий язык: {{ CURRENT_LANG }}</p></div> -->
+        <div class="spacer">
+            <h1 class="webLogo">MCubes</h1>
+        </div>
         <a id="link-account" class="account-text a-button nav-link a-button" href="{% url 'account:profile' %}">
         {% if user.is_authenticated %}
             {{ user.nickname }}

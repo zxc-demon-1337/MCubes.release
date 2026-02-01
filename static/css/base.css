@@ -1,3 +1,14 @@
+@font-face {
+    font-family: 'ZenDotsKir';
+    src: url('../fonts/ZenDotsKir.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.webLogo{
+    font-family: "ZenDotsKir";
+    margin: 0;
+}
 
 * {
     margin: 0;
@@ -28,7 +39,6 @@ body {
     align-items: center;
 }
 
-/* Навбар */
 .navbar {
     display: flex;
     flex-direction: row;
@@ -97,6 +107,9 @@ body {
 }
 
 .spacer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 100%;
     height: 50px;
     width: 100%;
