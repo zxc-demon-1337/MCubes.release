@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <div class="content">
+      <p class="title">{{ user.nickname }}</p>
+      <div class="profile-wrapper">
+        <div class="profile-card">
+          <div class="info-section">
+            <div class="input-group">
+              <div class="input-row">
+                <span class="label">{% trans "Nickname" %}</span>
+                {% csrf_token %}
+                <span class="value-span">{{ user.nickname }}</span>
+                <button class="change-btn" data-field="nickname">{% trans "Change" %}</button>
+              </div>
+              <div class="input-row">
+                <span class="label">{% trans "E-mail" %}</span>
+                <span class="value-span">{{ user.email }}</span>
+                <button class="change-btn"  data-field="email">{% trans "Change" %}</button>
+              </div>
+              <div class="input-row">
+                <span class="label">{% trans "Password" %}</span>
+                <span class="value-span">****************</span>
+                <button class="change-btn"  data-field="password">{% trans "Change" %}</button>
+              </div>
+              <div class="input-row">
+                <span class="label">{% trans "Avatar" %}</span>
+                <span class="value-span"></span>
+                <button class="change-btn"  data-field="avatar">{% trans "Change" %}</button>
+              </div>
+                <form method="post" action="{% url 'account:logout' %}">
+                {% csrf_token %}
+                <button type="submit" class="sign-out-btn">{% trans "Sign Out" %}</button>
+                </form>
+            </div>
+          </div>
+          <span>
+            {% if user.avatar %}
+                <img  src="{{ user.avatar.url }}" alt="Avatar">
+            {% else %}
+                <img src="{% static 'avatars/default.png' %}" alt="Avatar">
+            {% endif %}
+          </span>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+// CHANGE / CANCEL
+document.querySelectorAll('.change-btn').forEach(button => {
+    button.dataset.mode = 'view';
+
+    button.addEventListener('click', function () {
+        const row = this.closest('.input-row');
+        const valueEl = row.querySelector('.value-span');
+        const field = this.getAttribute('data-field');
+
+        if (!valueEl) {
+            console.error('valueEl не найден');
+            return;
+        }
+
+        if (this.dataset.mode === 'view') {
+            switchToEdit(field, valueEl, this);
+            this.dataset.mode = 'edit';
+        } else {
+            switchToView(field, valueEl, this);
+            this.dataset.mode = 'view';
+        }
+    });
+});
+
+
+// SWITCH TO EDIT
+function switchToEdit(field, valueEl, button) {
+    const currentValue = valueEl.textContent?.trim() || '';
+    button._originalValue = currentValue;
+    button._valueEl = valueEl;
+
+    let inputHtml = '';
+
+    if (field === 'password') {
+        inputHtml = `<input type="password" class="edit-input">`;
+    } 
+    else if (field === 'avatar') {
+        inputHtml = `
+            <div class="custom-file-upload">
+                <input type="file" accept="image/*" class="edit-input" style="display:none">
+                <button type="button" class="custom-file-button">Выберите файл</button>
+                <span class="custom-file-text">Файл не выбран</span>
+            </div>
+        `;
+    } 
+    else {
+        inputHtml = `<input type="text" value="${currentValue}" class="edit-input">`;
+    }
+
+    valueEl.innerHTML = inputHtml;
+
+    // avatar handlers
+    if (field === 'avatar') {
+    const fileInput = valueEl.querySelector('.edit-input');
+    const fileButton = valueEl.querySelector('.custom-file-button');
+    const fileText = valueEl.querySelector('.custom-file-text');
+    const MAX_SIZE = 10 * 1024 * 1024; // 10 МБ
+    const MAX_DIMENSION = 500;
+
+    fileButton.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', () => {
+        fileText.textContent = 'Файл не выбран';
+        fileInput.dataset.valid = 'false'; // Сброс статуса валидности
+
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        // Проверка 1: Размер файла
+        if (file.size > MAX_SIZE) {
+            alert('❌ Размер файла превышает 10 МБ. Выберите изображение поменьше.');
+            fileInput.value = '';
+            return;
+        }
+
+        // Проверка 2: Тип файла (дополнительная защита)
+        if (!file.type.match(/^image\//)) {
+            alert('❌ Файл должен быть изображением (JPEG, PNG, GIF и т.д.).');
+            fileInput.value = '';
+            return;
+        }
+
+        // Проверка 3: Размеры изображения (асинхронно)
+        const img = new Image();
+        const objectUrl = URL.createObjectURL(file);
+
+        img.onload = () => {
+            URL.revokeObjectURL(objectUrl); // Освобождаем память
+            if (img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
+                alert(`❌ Изображение слишком большое. Максимальный размер: ${MAX_DIMENSION}×${MAX_DIMENSION} пикселей.`);
+                fileInput.value = '';
+                fileText.textContent = 'Файл не выбран';
+            } else {
+                fileText.textContent = file.name;
+                fileInput.dataset.valid = 'true'; // Флаг валидности
+            }
+        };
+
+        img.onerror = () => {
+            URL.revokeObjectURL(objectUrl);
+            alert('❌ Ошибка загрузки изображения. Выберите корректный файл.');
+            fileInput.value = '';
+            fileText.textContent = 'Файл не выбран';
+        };
+
+        img.src = objectUrl;
+    });
+}
+
+    button.textContent = 'Cancel';
+    button.insertAdjacentHTML(
+        'afterend',
+        ` <button class="save-btn" data-field="${field}">Save</button>`
+    );
+}
+
+
+// SWITCH TO VIEW (CANCEL)
+function switchToView(field, valueEl, button) {
+    const row = button.closest('.input-row');
+    const saveBtn = row.querySelector('.save-btn');
+    if (saveBtn) saveBtn.remove();
+
+    const originalValue = button._originalValue || '';
+
+    if (field === 'avatar') {
+        valueEl.innerHTML = `<span class="value-span"></span>`;
+    } else {
+        valueEl.innerHTML = `<span class="value-span">${originalValue}</span>`;
+    }
+
+    button.textContent = 'Change';
+}
+
+
+// SAVE
+document.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('save-btn')) return;
+
+    const field = e.target.getAttribute('data-field');
+    const row = e.target.closest('.input-row');
+    const changeBtn = row.querySelector('.change-btn');
+    const valueEl = changeBtn._valueEl;
+
+    const input = valueEl.querySelector('.edit-input');
+    const value = input.type === 'file' ? null : input.value;
+    const file = input.type === 'file' ? input.files[0] : null;
+
+    if (field === 'password' && value.length < 8) {
+        alert('Пароль должен быть не менее 8 символов');
+        return;
+    }
+
+    // Добавить ПЕРЕД: const formData = new FormData();
+    if (field === 'avatar') {
+        const fileInput = valueEl.querySelector('.edit-input');
+        const file = fileInput?.files[0];
+        const MAX_SIZE = 10 * 1024 * 1024;
+
+        if (!file) {
+            alert('⚠️ Выберите файл изображения');
+            return;
+        }
+
+        // Повторная проверка размера (защита от обхода)
+        if (file.size > MAX_SIZE) {
+            alert('❌ Размер файла превышает 10 МБ');
+            return;
+        }
+
+        // Проверка флага валидности (установлен в обработчике выбора)
+        if (fileInput.dataset.valid !== 'true') {
+            alert('⚠️ Изображение не прошло проверку. Убедитесь, что размер не превышает 500×500 пикселей.');
+            return;
+        }
+    }
+
+    const formData = new FormData();
+    formData.append('field', field);
+    formData.append('value', file || value);
+    formData.append(
+        'csrfmiddlewaretoken',
+        document.querySelector('[name=csrfmiddlewaretoken]').value
+    );
+
+    fetch('/account/update_account/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (!data.success) {
+            alert(data.error || 'Ошибка сохранения');
+            return;
+        }
+
+        if (field === 'avatar' && data.new_value) {
+            document.querySelectorAll('.avatar, .user-avatar, .profile-avatar')
+                .forEach(img => img.src = data.new_value);
+
+            valueEl.innerHTML = `<span class="value-span"></span>`;
+        } 
+        else {
+            let displayValue = data.new_value;
+            if (field === 'password') displayValue = '****************';
+
+            valueEl.innerHTML = `<span class="value-span">${displayValue}</span>`;
+        }
+
+        changeBtn.dataset.mode = 'view';
+        changeBtn.textContent = 'Change';
+        e.target.remove();
+    })
+    .catch(() => {
+        alert('Ошибка соединения');
+    });
+});
+
+</script>
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

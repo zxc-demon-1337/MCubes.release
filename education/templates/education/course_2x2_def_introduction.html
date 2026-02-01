@@ -1,0 +1,39 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/course_2x2_def_introduction.css' %}">
+{% endblock %}
+
+{% block container %}
+
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <p class="title">{% trans "Introduction" %}</p>
+      <span class="text">{% trans "In order to learn how to assemble a Rubik's cube 2x2, you need to know the language of rotations and remember 2 formulas: the right \"bang bang\" and the left \"bang bang\"" %}</span>
+      <span class="text">{% trans "The formula is a set of rotations of a Rubik's cube: RUR'U' = turn the right face clockwise, turn the upper face clockwise, turn the right face counterclockwise, turn the upper face counterclockwise. More detailed -"%}<a href="{% url 'course_2x2_def_1' %}">{% trans "language of rotations" %}</a></a></span>
+        <div class="flex-row cards-row">
+            <div class="card video-wrapper">
+            <video src="{% static 'education/videos/0/0_RURiUi.webm' %}" class="cube-face"></video>
+            <p>RUR'U'</p>
+            <span class="instruction">{% trans 'right "bang-bang"' %}</span>
+            </div>
+            <div class="card video-wrapper">
+            <video src="{% static 'education/videos/0/0_LiUiLU.webm' %}" class="cube-face"></video>
+            <p>L'U'LU</p>
+            <span class="instruction">{% trans 'left "bang-bang"' %}</span>
+            </div>
+        </div>
+      <span class="text">{% trans "You may also encounter a type 3 entry (RUR'U'), which means that the formula in parentheses (in this case RUR'U') must be repeated 3 times." %}</span>
+      <span class="text">{% trans "If you see a photo of a cube with a red border, it means that by clicking on the cube, you can view a video animation of the formula signed under it." %}</span>
+
+
+    </div>
+    <div class="nav-buttons">
+            <!-- <span id="the-cube-is-assembled" class="nav-button back card-button" data-href="{% url 'course_2x2_def_5' %}">{% trans "Back" %}</span> -->
+            <span id="the-cube-is-assembled" class="nav-button next card-button" data-href="{% url 'course_2x2_def_1' %}">{% trans "Next" %}</span>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'account/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="main-container">
+    <div class="content">
+      <p class="title">{% trans "Login" %}</p>
+        <div class="form-wrapper">
+            <div class="form-card">
+                <p class="greeting">{% trans "Hi again!" %}</p>
+                <div class="input-section">
+                    <form method="post" class="form-field">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}">{% translate "E-mail" %}</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password.id_for_label }}">{% translate "Password" %}</label>
+                            {{ form.password }}
+                        </div>
+                        
+                        <button type="submit" class="login-btn">
+                            <span>{% trans "Log in" %}</span>
+                        </button>
+                    </form>
+                    <div class="register-link">
+                        <p>{% trans "Dont have an account? Register" %}<a href="{% url 'account:register' %}"  class="register-here">{% trans "here" %}</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'account/css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <div class="content">
+        <p class="title">{% trans "Register" %}</p>
+        <div class="form-wrapper">
+            <div class="form-card">
+                <p class="greeting">{% trans "Hi!" %}</p>
+                <div class="input-section">
+                    <form method="post" class="form-field">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="{{ form.nickname.id_for_label }}">{% translate "Nickname" %}</label>
+                            {{ form.nickname }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.email.id_for_label }}">{% translate "E-mail" %}</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password1.id_for_label }}">{% translate "Password" %}</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.password2.id_for_label }}">{% translate "Password again" %}</label>
+                            {{ form.password2 }}
+                        </div>
+                        <div class="mb-3" >
+                            <label for="{{ form.avatar.id_for_label }}">{% translate "Avatar" %}</label>
+                            {{ form.avatar }}
+                            <label for="fileInput" class="custom-file-label" style="color:#fff">Выбрать файл</label>
+                            <span class="file-name"></span>
+                        </div>
+                        
+                        <button type="submit" class="register-btn">
+                            <span>{% trans "register" %}</span>
+                        </button>
+                    </form>
+                    <div class="login-link">
+                        <p class="login-label">{% trans "Already have an account? Log in " %} <a href="{% url 'account:login' %}" class="login-here">{% trans "here" %}</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.custom-file-input').addEventListener('change', function(e) {
+    const fileName = e.target.files[0]?.name || 'Файл не выбран';
+    document.querySelector('.file-name').textContent = fileName;
+});
+</script>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

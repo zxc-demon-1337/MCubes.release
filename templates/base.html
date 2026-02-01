@@ -1,0 +1,93 @@
+<!-- templates/base.html -->
+{% load static %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANG %}
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANG }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}MCubes{% endblock %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&display=swap">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    
+    <nav class="navbar">
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}" />
+            {% if CURRENT_LANG == 'en' %}
+                <input type="hidden" name="language" value="ru">
+            {% else %}
+                <input type="hidden" name="language" value="en">
+            {% endif %}
+                <button type="submit" class="lang-switch a-button">
+                    <div class="lang-box">
+                        {% if CURRENT_LANG == 'en' %}EN{% else %}RU{% endif %}
+                    </div>
+                </button>
+        </form>
+        <div class="nav-content">
+            <div class="nav-links">
+                <a id="link-home" href="{% url 'home' %}" class="nav-link a-button">{% trans "Home" %}</a>
+                <a id="link-education" href="{% url 'education' %}" class="nav-link a-button">{% trans "Education" %}</a>
+                <a id="link-library" href="#" class="nav-link a-button">{% trans "Library" %}</a>
+                <a id="link-timer" href="{% url 'rubik_timer:choose_timer' %}" class="nav-link a-button">{% trans "Timer" %}</a>
+                <a id="link-stats" href="{% url 'stats:history' %}" class="nav-link a-button">{% trans "Stats" %}</a>
+                <a id="link-about-us" href="#" class="nav-link a-button">{% trans "About us" %}</a>
+            </div>
+        </div>
+       
+        <div class="spacer"></div>
+    <!-- <nav class="navbar">
+
+        <form action="{% url 'set_language' %}" method="post" style="display: inline;">
+  {% csrf_token %}
+  <input name="next" type="hidden" value="{{ request.path }}" />
+  {% get_current_language as CURRENT_LANG %}
+  <button type="submit" class="lang-switch a-button" style="
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+  ">
+    <div class="lang-box">
+      {% if CURRENT_LANG == 'en' %}RU{% else %}EN{% endif %}
+    </div>
+  </button>
+</form>
+        <div class="spacer"><p>Текущий язык: {{ CURRENT_LANG }}</p></div> -->
+        <a id="link-account" class="account-text a-button nav-link a-button" href="{% url 'account:profile' %}">
+        {% if user.is_authenticated %}
+            {{ user.nickname }}
+        {% else %}
+            account
+        {% endif %}
+        </a>
+        <div class="avatar-container">
+            {% if user.avatar %}
+                <img class="avavtar" src="{{ user.avatar.url }}" alt="{{ user.nickname }}">
+            {% else %}
+                <img class="avavtar" src="{% get_media_prefix %}/avatars/default.png" alt="avatar">
+            {% endif %}
+        </div>
+    </nav>
+    <main class="content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% block extra_js %}{% endblock %}
+<script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>

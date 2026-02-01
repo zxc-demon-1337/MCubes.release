@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}2x2 Timer{% endblock %}
+
+{% block content %}
+
+    <div class="modal-overlay">
+        <div class="modal">
+            <h2>{% trans "Important!" %}</h2>
+            <p>
+                {% trans "To use the timer, press the SPACE BAR and the inspection time will start. After the end of the inspection time, press the SPACE BAR to start the timer itself. When you finish collecting the cube, press the SPACE bar to find out your time." %}
+            </p>
+            <p>
+                {% trans "In order for the cube to be displayed correctly, hold the cube like this before disassembling: the white side is below, the green side is looking at you." %}
+            </p>
+            
+            <button class="modal-btn">{% trans "OK" %}</button>
+        </div>
+    </div>
+
+    <h1 class="section-title">{% trans "2x2 timer" %}</h1>
+    <div class="timer-page">
+
+    <!-- SCRAMBLE -->
+    <div class="scramble">
+        <div class="scramble-title">{% trans "Scramble" %}</div>
+        <div id="scramble-text"></div>
+    </div>
+
+    <!-- TIMER -->
+    <div id="timer" class="timer idle">
+        <span id="time">0.00</span>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+
+    <div class="bestof">
+        <div class="bestof-title">{% trans "AVG of 5" %}</div>
+        <div id="avg">-</div>
+        <div id="times" class="times-list"></div>
+    </div>
+
+
+
+        <!-- REALISTIC 2x2 NET -->
+        <div class="cube">
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="yellow-cont grid-cont">
+                <div class="yellow1 grid-color" id="y1"></div>
+                <div class="yellow2 grid-color" id="y2"></div>
+                <div class="yellow3 grid-color" id="y3"></div>
+                <div class="yellow4 grid-color" id="y4"></div>
+            </div>
+            
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+            
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+            
+            <div class="red-cont grid-cont">
+                <div class="red1 grid-color" id="r1"></div>
+                <div class="red2 grid-color" id="r2"></div>
+                <div class="red3 grid-color" id="r3"></div>
+                <div class="red4 grid-color" id="r4"></div>
+            </div>
+
+            <div class="green-cont grid-cont">
+                <div class="green1 grid-color" id="g1"></div>
+                <div class="green2 grid-color" id="g2"></div>
+                <div class="green3 grid-color" id="g3"></div>
+                <div class="green4 grid-color" id="g4"></div>
+            </div>
+
+            <div class="orange-cont grid-cont">
+                <div class="orange1 grid-color" id="o1"></div>
+                <div class="orange2 grid-color" id="o2"></div>
+                <div class="orange3 grid-color" id="o3"></div>
+                <div class="orange4 grid-color" id="o4"></div>
+            </div>
+
+            <div class="blue-cont grid-cont">
+                <div class="blue1 grid-color" id="b1"></div>
+                <div class="blue2 grid-color" id="b2"></div>
+                <div class="blue3 grid-color" id="b3"></div>
+                <div class="blue4 grid-color" id="b4"></div>
+            </div>
+            
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="white-cont grid-cont">
+                <div class="white1 grid-color" id="w1"></div>
+                <div class="white2 grid-color" id="w2"></div>
+                <div class="white3 grid-color" id="w3"></div>
+                <div class="white4 grid-color" id="w4"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- HIDDEN FORM -->
+    <form id="solve-form">
+        {% csrf_token %}
+        <input type="hidden" name="cube_type">
+        <input type="hidden" name="scramble">
+        <input type="hidden" name="solve_time">
+    </form>
+    <script>
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modalBtn = document.querySelector('.modal-btn');
+
+        // Закрыть модалку только по кнопке
+        modalBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'none';
+        });
+    </script>
+
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'rubik_timer/css/timer.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'rubik_timer/js/timer.js' %}"></script>
+{% endblock %}
