@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-01 18:37+0300\n"
+"POT-Creation-Date: 2026-02-08 14:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,13 +20,34 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\MCubes\settings.py:138
+#: .\MCubes\settings.py:143
 msgid "English"
 msgstr ""
 
-#: .\MCubes\settings.py:139
+#: .\MCubes\settings.py:144
 msgid "Russian"
 msgstr ""
+
+#: .\aboutus\templates\aboutus\aboutus.html:8 .\templates\base.html:47
+#: .\templates\base.html:84
+msgid "About us"
+msgstr "О нас"
+
+#: .\aboutus\templates\aboutus\aboutus.html:9
+msgid "MCubes is an educational project created as part of the study of web development. Here I apply my knowledge of JavaScript, CSS, and working with interfaces to make something useful and interesting."
+msgstr "MCubes — это учебный проект, созданный в рамках изучения веб-разработки. Здесь я применяю знания по JavaScript, CSS и работе с интерфейсами, чтобы сделать что-то полезное и интересное."
+
+#: .\aboutus\templates\aboutus\aboutus.html:10
+msgid "This is not a commercial product or a startup. It's just that a schoolboy from Moscow who is interested in programming and the Rubik's Cube decided to put theory and practice together. Each line of code is written independently, each bug is fixed manually, and each new feature is a step forward in mastering web technologies."
+msgstr "Это не коммерческий продукт и не стартап. Просто школьник из Москвы, который увлекается программированием и кубиком Рубика, решил объединить теорию и практику. Каждая строка кода пишется самостоятельно, каждая ошибка исправляется вручную, а каждая новая функция - это шаг вперед в освоении веб-технологий."
+
+#: .\aboutus\templates\aboutus\aboutus.html:11
+msgid "Thank you for using my project!"
+msgstr "Спасибо вам за использование моего проекта!"
+
+#: .\aboutus\templates\aboutus\aboutus.html:12
+msgid "Egor Elagin, 11th grade"
+msgstr "Егор Елагин, 11 класс"
 
 #: .\account\templates\account\login.html:15
 msgid "Login"
@@ -102,78 +123,107 @@ msgstr "Регистриация"
 msgid "Already have an account? Log in "
 msgstr "Уже есть аккаунт? Войдите в него "
 
+#: .\comingsoon\templates\comingsoon\comingsoon.html:11
+msgid "Oops"
+msgstr "Упсс"
+
+#: .\comingsoon\templates\comingsoon\comingsoon.html:12
+msgid "There is nothing here yet, but we will add this section soon."
+msgstr "Здесь пока ничего нет, но мы скоро добавим этот раздел."
+
 #: .\education\templates\education\choose-cube.html:11
 msgid "Which cube will you choose?"
 msgstr "Какой кубик вы выберете?"
 
 #: .\education\templates\education\choose-cube.html:22
-#: .\education\templates\education\choose-cube.html:32
-#: .\education\templates\education\choose-cube.html:42
-#: .\education\templates\education\choose-cube.html:52
 msgid "For beginners"
 msgstr "Для новичков"
 
+#: .\education\templates\education\choose-cube.html:23
+#: .\education\templates\education\choose-cube.html:32
+#: .\education\templates\education\choose-cube.html:33
+#: .\education\templates\education\choose-cube.html:42
+#: .\education\templates\education\choose-cube.html:43
+#: .\education\templates\education\choose-cube.html:52
+#: .\education\templates\education\choose-cube.html:53
+msgid "Coming soon"
+msgstr "Скоро выйдет"
+
 #: .\education\templates\education\course_2x2_def_1.html:10
-#: .\templates\navbar.html:17
+#: .\templates\navbar.html:17 .\templates\navbar.html:28
 msgid "The language of rotations"
 msgstr "Язык вращений"
 
 #: .\education\templates\education\course_2x2_def_1.html:14
+#: .\education\templates\education\course_2x2_def_1.html:40
 msgid "Turn the upper face clockwise"
 msgstr "Поворот верхней грани по часовой"
 
 #: .\education\templates\education\course_2x2_def_1.html:15
+#: .\education\templates\education\course_2x2_def_1.html:41
 msgid "Turn the upper face counterclockwise"
 msgstr "Поворот верхней грани против часовой"
 
 #: .\education\templates\education\course_2x2_def_1.html:16
+#: .\education\templates\education\course_2x2_def_1.html:44
 msgid "Turn the bottom face clockwise"
 msgstr "Поворот нижней грани по часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:20
+#: .\education\templates\education\course_2x2_def_1.html:19
+#: .\education\templates\education\course_2x2_def_1.html:45
 msgid "Turn the bottom face counterclockwise"
 msgstr "Поворот нижней грани против часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:21
+#: .\education\templates\education\course_2x2_def_1.html:20
+#: .\education\templates\education\course_2x2_def_1.html:49
 msgid "Turn the right side clockwise"
 msgstr "Поворот правой грани по часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:22
+#: .\education\templates\education\course_2x2_def_1.html:21
+#: .\education\templates\education\course_2x2_def_1.html:50
 msgid "Turn the right face counterclockwise"
 msgstr "Поворот правой грани против часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:26
+#: .\education\templates\education\course_2x2_def_1.html:24
+#: .\education\templates\education\course_2x2_def_1.html:53
 msgid "Turn the left side clockwise"
 msgstr "Поворот левой грани по часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:27
+#: .\education\templates\education\course_2x2_def_1.html:25
+#: .\education\templates\education\course_2x2_def_1.html:54
 msgid "Turn the left face counterclockwise"
 msgstr "Поворот левой грани против часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:28
+#: .\education\templates\education\course_2x2_def_1.html:26
+#: .\education\templates\education\course_2x2_def_1.html:57
 msgid "Turn the front face clockwise"
 msgstr "Поворот передней грани по часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:32
+#: .\education\templates\education\course_2x2_def_1.html:29
+#: .\education\templates\education\course_2x2_def_1.html:58
 msgid "Turn the front face counterclockwise"
 msgstr "Поворот передней грани против часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:33
+#: .\education\templates\education\course_2x2_def_1.html:30
+#: .\education\templates\education\course_2x2_def_1.html:61
 msgid "Turn the back face clockwise"
 msgstr "Поворот задней грани по часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:34
+#: .\education\templates\education\course_2x2_def_1.html:31
+#: .\education\templates\education\course_2x2_def_1.html:62
 msgid "Turn the back face counterclockwise"
 msgstr "Поворот задней грани против часовой"
 
-#: .\education\templates\education\course_2x2_def_1.html:38
+#: .\education\templates\education\course_2x2_def_1.html:34
+#: .\education\templates\education\course_2x2_def_1.html:65
 msgid ""
 "The whole cube rotates clockwise in the horizontal plane (F turns into L)"
 msgstr ""
 "Весь куб вращается по часовой стрелке в горизонтальной плоскости (F "
 "превращается в L)."
 
-#: .\education\templates\education\course_2x2_def_1.html:39
+#: .\education\templates\education\course_2x2_def_1.html:35
+#: .\education\templates\education\course_2x2_def_1.html:66
 msgid ""
 "The whole cube rotates counterclockwise in the horizontal plane (F turns "
 "into R)"
@@ -181,33 +231,38 @@ msgstr ""
 "Весь куб вращается против часовой стрелки в горизонтальной плоскости (F "
 "превращается в R)."
 
-#: .\education\templates\education\course_2x2_def_1.html:43
+#: .\education\templates\education\course_2x2_def_1.html:69
 msgid "If there is a number 2 next to the letter, it means 2 rotations."
 msgstr "Если рядом с буквой стоит цифра 2, это означает 2 поворота."
 
-#: .\education\templates\education\course_2x2_def_1.html:45
-#: .\education\templates\education\course_2x2_def_2.html:79
-#: .\education\templates\education\course_2x2_def_3.html:66
+#: .\education\templates\education\course_2x2_def_1.html:71
+#: .\education\templates\education\course_2x2_def_2.html:82
+#: .\education\templates\education\course_2x2_def_2.html:158
+#: .\education\templates\education\course_2x2_def_3.html:123
 #: .\education\templates\education\course_2x2_def_4.html:42
+#: .\education\templates\education\course_2x2_def_4.html:80
 #: .\education\templates\education\course_2x2_def_5.html:18
-#: .\education\templates\education\course_2x2_def_introduction.html:34
 msgid "Back"
 msgstr "Назад"
 
-#: .\education\templates\education\course_2x2_def_1.html:46
-#: .\education\templates\education\course_2x2_def_2.html:80
-#: .\education\templates\education\course_2x2_def_3.html:67
+#: .\education\templates\education\course_2x2_def_1.html:72
+#: .\education\templates\education\course_2x2_def_2.html:83
+#: .\education\templates\education\course_2x2_def_2.html:159
+#: .\education\templates\education\course_2x2_def_3.html:124
 #: .\education\templates\education\course_2x2_def_4.html:43
-#: .\education\templates\education\course_2x2_def_introduction.html:35
+#: .\education\templates\education\course_2x2_def_4.html:81
+#: .\education\templates\education\course_2x2_def_introduction.html:34
 msgid "Next"
 msgstr "Далее"
 
 #: .\education\templates\education\course_2x2_def_2.html:13
-#: .\templates\navbar.html:18
+#: .\education\templates\education\course_2x2_def_2.html:87
+#: .\templates\navbar.html:18 .\templates\navbar.html:29
 msgid "The first side"
 msgstr "Первая сторона"
 
 #: .\education\templates\education\course_2x2_def_2.html:15
+#: .\education\templates\education\course_2x2_def_2.html:89
 msgid ""
 "First you need to assemble the first layer on either side. For convenience, "
 "we will assemble it on a white one. We find any corner with a white color on "
@@ -219,6 +274,7 @@ msgstr ""
 "бело-красно-зеленый. Этот угол и будет основой первого слоя."
 
 #: .\education\templates\education\course_2x2_def_2.html:17
+#: .\education\templates\education\course_2x2_def_2.html:91
 msgid ""
 "You need to place it at the bottom left so that the white side looks down. "
 "It turns out that the green color is looking at us."
@@ -226,12 +282,8 @@ msgstr ""
 "Вам нужно расположить его слева внизу так, чтобы белая сторона смотрела "
 "вниз. Получается, что зеленый цвет смотрит на нас."
 
-#: .\education\templates\education\course_2x2_def_2.html:22
-#: .\education\templates\education\course_2x2_def_2.html:26
-msgid "The assembled first layer"
-msgstr "Собранный первый слой"
-
-#: .\education\templates\education\course_2x2_def_2.html:30
+#: .\education\templates\education\course_2x2_def_2.html:20
+#: .\education\templates\education\course_2x2_def_2.html:94
 msgid ""
 "After that, we find another corner with a white color, which has a color "
 "that looks at us at the first corner. In our case, it is a white-green-"
@@ -241,7 +293,8 @@ msgstr ""
 "который смотрит на нас в первом углу. В нашем случае это бело-зелено-"
 "оранжевый угол. Он должен быть расположен перед нами в правом верхнем углу."
 
-#: .\education\templates\education\course_2x2_def_2.html:32
+#: .\education\templates\education\course_2x2_def_2.html:22
+#: .\education\templates\education\course_2x2_def_2.html:96
 msgid ""
 "We look at where the white color is directed: towards us, to the side, or "
 "upward. Depending on this, we perform one of three algorithms"
@@ -249,19 +302,23 @@ msgstr ""
 "Мы смотрим, куда направлен белый цвет: на нас, в сторону или вверх. В "
 "зависимости от этого мы выполняем один из трех алгоритмов"
 
-#: .\education\templates\education\course_2x2_def_2.html:38
+#: .\education\templates\education\course_2x2_def_2.html:28
+#: .\education\templates\education\course_2x2_def_2.html:102
 msgid "The white cube is facing away"
 msgstr "Белый элемент повернут от нас"
 
-#: .\education\templates\education\course_2x2_def_2.html:43
+#: .\education\templates\education\course_2x2_def_2.html:33
+#: .\education\templates\education\course_2x2_def_2.html:107
 msgid "The white element is up"
 msgstr "Белый элемент смотрит наверх"
 
-#: .\education\templates\education\course_2x2_def_2.html:48
+#: .\education\templates\education\course_2x2_def_2.html:38
+#: .\education\templates\education\course_2x2_def_2.html:115
 msgid "The white element is looking at us"
 msgstr "Белый элемент смотрит на нас"
 
-#: .\education\templates\education\course_2x2_def_2.html:52
+#: .\education\templates\education\course_2x2_def_2.html:45
+#: .\education\templates\education\course_2x2_def_2.html:119
 msgid ""
 "There may be cases when the corner is already at the bottom in its own or "
 "someone else's place and is incorrectly deployed."
@@ -269,19 +326,23 @@ msgstr ""
 "Могут быть случаи, когда уголок уже находится внизу на своем или чужом месте "
 "и неправильно развернут:"
 
-#: .\education\templates\education\course_2x2_def_2.html:58
+#: .\education\templates\education\course_2x2_def_2.html:51
+#: .\education\templates\education\course_2x2_def_2.html:125
 msgid "Then - (RUR'U')"
 msgstr "Далее - (RUR'U')"
 
-#: .\education\templates\education\course_2x2_def_2.html:63
+#: .\education\templates\education\course_2x2_def_2.html:56
+#: .\education\templates\education\course_2x2_def_2.html:130
 msgid "Then - 3(RUR'U')"
 msgstr "Далее - 3(RUR'U')"
 
-#: .\education\templates\education\course_2x2_def_2.html:68
+#: .\education\templates\education\course_2x2_def_2.html:61
+#: .\education\templates\education\course_2x2_def_2.html:138
 msgid "Then - 5(RUR'U')"
 msgstr "Далее - 5(RUR'U')"
 
-#: .\education\templates\education\course_2x2_def_2.html:72
+#: .\education\templates\education\course_2x2_def_2.html:65
+#: .\education\templates\education\course_2x2_def_2.html:141
 msgid ""
 "After the second corner is positioned correctly, we need to intercept the "
 "cube in our hands so that this corner is at the bottom to our left. Just "
@@ -291,7 +352,8 @@ msgstr ""
 "кубик  в руки так, чтобы этот угол был внизу слева от нас. Так же , как это "
 "было с первым углом."
 
-#: .\education\templates\education\course_2x2_def_2.html:74
+#: .\education\templates\education\course_2x2_def_2.html:67
+#: .\education\templates\education\course_2x2_def_2.html:143
 msgid ""
 "Next, we do the same thing: we find an element with a white color, which "
 "also has a color that looks at us at the bottom corner. This is a white-"
@@ -303,16 +365,26 @@ msgstr ""
 "угол. Мы помещаем его сверху прямо перед собой, смотрим, куда направлен "
 "белый цвет, и выполняем алгоритм."
 
-#: .\education\templates\education\course_2x2_def_2.html:76
+#: .\education\templates\education\course_2x2_def_2.html:69
+#: .\education\templates\education\course_2x2_def_2.html:145
 msgid "After that, we do the same with the last corner."
 msgstr "После этого мы проделываем то же самое с последним углом."
 
+#: .\education\templates\education\course_2x2_def_2.html:73
+#: .\education\templates\education\course_2x2_def_2.html:77
+#: .\education\templates\education\course_2x2_def_2.html:149
+#: .\education\templates\education\course_2x2_def_2.html:153
+msgid "The assembled first layer"
+msgstr "Собранный первый слой"
+
 #: .\education\templates\education\course_2x2_def_3.html:13
-#: .\templates\navbar.html:19
+#: .\education\templates\education\course_2x2_def_3.html:68
+#: .\templates\navbar.html:19 .\templates\navbar.html:30
 msgid "Setting the corners of the second layer"
 msgstr "Постановка углов второго слоя"
 
 #: .\education\templates\education\course_2x2_def_3.html:15
+#: .\education\templates\education\course_2x2_def_3.html:70
 msgid ""
 "At this stage, you need to place the corners of the second layer correctly. "
 "So that the colors on each of the upper elements, except for yellow, match "
@@ -323,6 +395,7 @@ msgstr ""
 "элементов под ними."
 
 #: .\education\templates\education\course_2x2_def_3.html:17
+#: .\education\templates\education\course_2x2_def_3.html:72
 msgid ""
 "To do this, you need to find the yellow-red-green corner and put it in the "
 "right place.: above the other corner on the first layer with red and green "
@@ -336,10 +409,14 @@ msgstr ""
 #: .\education\templates\education\course_2x2_def_3.html:22
 #: .\education\templates\education\course_2x2_def_3.html:26
 #: .\education\templates\education\course_2x2_def_3.html:30
+#: .\education\templates\education\course_2x2_def_3.html:77
+#: .\education\templates\education\course_2x2_def_3.html:81
+#: .\education\templates\education\course_2x2_def_3.html:88
 msgid "Correctly placed angle"
 msgstr "Правильно расположенный угол"
 
 #: .\education\templates\education\course_2x2_def_3.html:34
+#: .\education\templates\education\course_2x2_def_3.html:91
 msgid ""
 "Next, without rotating the faces of the cube, we inspect the top layer and "
 "find other corners that stand correctly. That is, the colors on them (except "
@@ -351,6 +428,7 @@ msgstr ""
 "желтого) должны совпадать с цветами в углах, которые расположены под ними."
 
 #: .\education\templates\education\course_2x2_def_3.html:36
+#: .\education\templates\education\course_2x2_def_3.html:93
 msgid "Two correctly positioned corners can stand side by side or diagonally."
 msgstr ""
 "Два правильно расположенных угла могут располагаться бок о бок или по "
@@ -358,15 +436,20 @@ msgstr ""
 
 #: .\education\templates\education\course_2x2_def_3.html:41
 #: .\education\templates\education\course_2x2_def_3.html:57
+#: .\education\templates\education\course_2x2_def_3.html:98
+#: .\education\templates\education\course_2x2_def_3.html:114
 msgid "The corners stand side by side"
 msgstr "Углы стоят бок о бок"
 
 #: .\education\templates\education\course_2x2_def_3.html:45
 #: .\education\templates\education\course_2x2_def_3.html:62
+#: .\education\templates\education\course_2x2_def_3.html:102
+#: .\education\templates\education\course_2x2_def_3.html:119
 msgid "The corners stand diagonally"
 msgstr "Углы расположены по диагонали"
 
 #: .\education\templates\education\course_2x2_def_3.html:49
+#: .\education\templates\education\course_2x2_def_3.html:106
 msgid ""
 "If there are no more such corners, you need to take any other corner on the "
 "top layer and put it in the correct place. Next, we check the other corners "
@@ -379,6 +462,7 @@ msgstr ""
 "находиться в нужных местах."
 
 #: .\education\templates\education\course_2x2_def_3.html:51
+#: .\education\templates\education\course_2x2_def_3.html:108
 msgid ""
 "If they are standing next to each other, you need to take the cube so that "
 "the correct corners are on the left and run the algorithm. If we run the "
@@ -392,11 +476,13 @@ msgstr ""
 "2 правильных угла слева и повторить алгоритм."
 
 #: .\education\templates\education\course_2x2_def_4.html:11
-#: .\templates\navbar.html:20
+#: .\education\templates\education\course_2x2_def_4.html:47
+#: .\templates\navbar.html:20 .\templates\navbar.html:31
 msgid "Rotate the corners of the second layer"
 msgstr "Поворот углов второго слоя"
 
 #: .\education\templates\education\course_2x2_def_4.html:13
+#: .\education\templates\education\course_2x2_def_4.html:49
 msgid ""
 "At this stage, you need to expand the 4 corners on the top layer to assemble "
 "the entire cube. We take the cube in our hands so that the white side is on "
@@ -406,6 +492,7 @@ msgstr ""
 "весь кубик целиком. Берем кубик в руки так, чтобы белая сторона была сверху."
 
 #: .\education\templates\education\course_2x2_def_4.html:15
+#: .\education\templates\education\course_2x2_def_4.html:51
 msgid ""
 "We will rotate the angle that is located from the bottom to our right. The "
 "moment the corner gets up correctly, the rest of the cube will collapse. "
@@ -417,24 +504,29 @@ msgstr ""
 "угла будут расположены правильно, куб соберется заново."
 
 #: .\education\templates\education\course_2x2_def_4.html:16
+#: .\education\templates\education\course_2x2_def_4.html:52
 msgid ""
 "В зависимости от разворота уголка, нужно будет использовать одну из трёх "
 "формул:"
 msgstr ""
 
 #: .\education\templates\education\course_2x2_def_4.html:21
+#: .\education\templates\education\course_2x2_def_4.html:57
 msgid "The yellow color looks to the right side"
 msgstr "Жёлтый цвет смотрит направо"
 
 #: .\education\templates\education\course_2x2_def_4.html:26
+#: .\education\templates\education\course_2x2_def_4.html:62
 msgid "The yellow color is looking at us"
 msgstr "Жёлтый цвет смотрит на нас"
 
 #: .\education\templates\education\course_2x2_def_4.html:31
+#: .\education\templates\education\course_2x2_def_4.html:70
 msgid "The corner is positioned correctly"
 msgstr "Угол стоит правильно"
 
 #: .\education\templates\education\course_2x2_def_4.html:35
+#: .\education\templates\education\course_2x2_def_4.html:73
 msgid ""
 "Next, you need to move the bottom edge to put the next corner with yellow "
 "color from the bottom right. We do formules again until the corner gets up "
@@ -447,6 +539,7 @@ msgstr ""
 "правильно и куб не будет полностью собран."
 
 #: .\education\templates\education\course_2x2_def_4.html:37
+#: .\education\templates\education\course_2x2_def_4.html:75
 msgid ""
 "At this stage, a situation may arise that causes many to abandon the build. "
 "It may happen that all four corners unfolded correctly, but the first 2 "
@@ -459,6 +552,7 @@ msgstr ""
 "одном и том же положении."
 
 #: .\education\templates\education\course_2x2_def_4.html:39
+#: .\education\templates\education\course_2x2_def_4.html:77
 msgid ""
 "We need to keep doing formules. After a certain number of bangs, the first "
 "two layers will come together, but there will be one unrolled corner. This "
@@ -507,12 +601,12 @@ msgid "Well done!"
 msgstr "Отличная работа!"
 
 #: .\education\templates\education\course_2x2_def_5.html:19
-#: .\templates\base.html:38
+#: .\templates\base.html:42 .\templates\base.html:79
 msgid "Home"
 msgstr "Главная"
 
 #: .\education\templates\education\course_2x2_def_introduction.html:13
-#: .\templates\navbar.html:16
+#: .\templates\navbar.html:16 .\templates\navbar.html:27
 msgid "Introduction"
 msgstr "Введение"
 
@@ -573,7 +667,8 @@ msgstr ""
 msgid "What can you find here?"
 msgstr "Что вы можете здесь найти?"
 
-#: .\home\templates\home\index.html:15 .\templates\base.html:39
+#: .\home\templates\home\index.html:15 .\templates\base.html:43
+#: .\templates\base.html:80
 msgid "Education"
 msgstr "Обучение"
 
@@ -581,7 +676,8 @@ msgstr "Обучение"
 msgid "Here you can learn how to assemble a Rubik's cube from scratch."
 msgstr "Здесь вы можете обучиться сборке кубика Рубика с нуля."
 
-#: .\home\templates\home\index.html:20 .\templates\base.html:40
+#: .\home\templates\home\index.html:20 .\templates\base.html:44
+#: .\templates\base.html:81
 msgid "Library"
 msgstr "Библиотека"
 
@@ -589,7 +685,8 @@ msgstr "Библиотека"
 msgid "Here you will find a collection of all formulas."
 msgstr "Здесь вы найдете коллекцию всех формул."
 
-#: .\home\templates\home\index.html:25 .\templates\base.html:41
+#: .\home\templates\home\index.html:25 .\templates\base.html:45
+#: .\templates\base.html:82
 msgid "Timer"
 msgstr "Таймер"
 
@@ -597,7 +694,8 @@ msgstr "Таймер"
 msgid "Here you can measure the speed of your assembling."
 msgstr "Здесь вы можете измерить скорость вашей сборки."
 
-#: .\home\templates\home\index.html:30 .\templates\base.html:42
+#: .\home\templates\home\index.html:30 .\stats\templates\stats\history.html:12
+#: .\templates\base.html:46 .\templates\base.html:83
 msgid "Stats"
 msgstr "Статистика"
 
@@ -609,15 +707,15 @@ msgstr "Здесь вы можете отслеживать свою стати�
 msgid "Choose what you need and go ahead to conquer the heights!"
 msgstr "Выбирайте то, что вам нужно, и вперед покорять вершины!"
 
-#: .\rubik_timer\templates\rubik_timer\choose_timer.html:11
+#: .\rubik_timer\templates\rubik_timer\choose_timer.html:12
 msgid "Which cube do you need a timer for?"
 msgstr "Для какого кубика вам нужен таймер?"
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:10
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:9
 msgid "Important!"
 msgstr "Важно!"
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:12
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:11
 msgid ""
 "To use the timer, press the SPACE BAR and the inspection time will start. "
 "After the end of the inspection time, press the SPACE BAR to start the timer "
@@ -628,7 +726,7 @@ msgstr ""
 "После окончания времени на инспекцию нажмите ПРОБЕЛ, чтобы запустить сам "
 "таймер. Как закончите собирать кубик нажмите ПРОБЕЛ, чтобы узнать своё время"
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:15
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:14
 msgid ""
 "In order for the cube to be displayed correctly, hold the cube like this "
 "before disassembling: the white side is below, the green side is looking at "
@@ -637,49 +735,45 @@ msgstr ""
 "Чтобы развёртка куба правильно отображалась, перед разборкой держите куб "
 "так: белая сторона снизу, зелёная сторона смотрит на вас."
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:18
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:17
 msgid "OK"
 msgstr "Понятно"
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:22
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:21
 msgid "2x2 timer"
 msgstr "Таймер для 2x2"
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:27
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:25
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:144
 msgid "Scramble"
 msgstr "Скрамбл"
 
-#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:40
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:35
+#: .\rubik_timer\templates\rubik_timer\timer_2x2.html:154
 msgid "AVG of 5"
 msgstr "СРЕД. из 5"
 
-
-
-#: .\stats\templates\stats\history.html:17
+#: .\stats\templates\stats\history.html:16
 msgid "Total solves:"
 msgstr "Всего сборок:"
 
-#: .\stats\templates\stats\history.html:26
+#: .\stats\templates\stats\history.html:25
 msgid "Cube type"
 msgstr "Тип кубика"
 
-#: .\stats\templates\stats\history.html:27
+#: .\stats\templates\stats\history.html:26
 msgid "Formula"
 msgstr "Формула"
 
-#: .\stats\templates\stats\history.html:28
+#: .\stats\templates\stats\history.html:27
 msgid "Solve time"
 msgstr "Время сборки"
 
-#: .\stats\templates\stats\history.html:29
+#: .\stats\templates\stats\history.html:28
 msgid "Solve date"
 msgstr "Дата сборки"
 
-#: .\templates\base.html:43
-msgid "About us"
-msgstr "О нас"
-
-#: .\templates\navbar.html:21
+#: .\templates\navbar.html:21 .\templates\navbar.html:32
 msgid "The cube is assembled!"
 msgstr "Кубик собран!"
 
