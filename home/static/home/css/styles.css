@@ -1,7 +1,5 @@
-/* Общие настройки */
 
 
-/* Основной контент */
 .main-content {
     display: flex;
     flex-direction: column;
@@ -72,33 +70,32 @@
     transition: transform 0.1s ease-out;
 }
 
-/* Цвета карточек */
 .card-education {
-    background: #C0484A;
+    background: #BC2C2E;
 }
 .card-education .card-button {
-    background: #F60004;
+    background: #F1272A;
 }
 
 .card-library {
-    background: #BAC048;
+    background: #C78E28;
 }
 .card-library .card-button {
-    background: #EAFF00;
+    background: #C8B02E;
 }
 
 .card-timer {
-    background: #48ACC0;
+    background: #007DB9;
 }
 .card-timer .card-button {
-    background: #00CCFF;
+    background: #039BF3;
 }
 
 .card-stats {
-    background: #8A48C0;
+    background: #A501A1;
 }
 .card-stats .card-button {
-    background: #8C00FF;
+    background: #E700D7;
 }
 
 .footer-text {
@@ -135,7 +132,6 @@
   cursor: pointer;
 }
 
-/* сам блик */
 .card-button::before {
   content: "";
   position: absolute;
@@ -154,8 +150,6 @@
 
   transform: skewX(-20deg);
 }
-
-/* анимация при наведении */
 .card-button:hover::before {
   left: 150%;
   transition: left 0.6s ease;
@@ -163,4 +157,25 @@
 
 #link-home{
     color: #48c072;
+}
+
+@media (max-width: 768px) {
+    .section-title, .footer-text {
+        font-size: 22px;
+    }
+    .cards-wrapper{
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .card{
+        height: 384px;
+    }
+    .content{
+        height: fit-content;
+    }
+    .main-content{
+        gap: 40px;
+        margin-bottom: 20px;
+    }
 }

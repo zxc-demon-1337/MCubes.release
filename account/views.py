@@ -14,7 +14,7 @@ def register(request):
             user = form.save()
             print("Avatar path:", user.avatar.name)
             login(request, user)
-            return redirect('account:profile')
+            return redirect('home')
 
     else:
         form = MyAccountRegisterForm()

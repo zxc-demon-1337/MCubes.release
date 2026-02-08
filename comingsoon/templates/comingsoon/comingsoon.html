@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'comingsoon/css/comingsoon.css' %}">
+{% endblock %}
+{% block content %}
+<div class="main-content">
+    <h1>{% trans "Oops" %}</h1>
+    <h1>{% trans "There is nothing here yet, but we will add this section soon." %}</h1>
+</div>
+<style>
+    .main-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        gap: 40px;
+        padding: 80px 10px 0 10px
+    }
+    @media (max-width:768px){
+        .main-content h1{
+            font-size: 24px;
+        }
+    }
+</style>
+{% endblock %}

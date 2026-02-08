@@ -4,7 +4,6 @@
 {% block title %}2x2 Timer{% endblock %}
 
 {% block content %}
-
     <div class="modal-overlay">
         <div class="modal">
             <h2>{% trans "Important!" %}</h2>
@@ -22,29 +21,21 @@
     <h1 class="section-title">{% trans "2x2 timer" %}</h1>
     <div class="timer-page">
 
-    <!-- SCRAMBLE -->
-    <div class="scramble">
-        <div class="scramble-title">{% trans "Scramble" %}</div>
-        <div id="scramble-text"></div>
-    </div>
+        <div class="scramble">
+            <div class="scramble-title">{% trans "Scramble" %}</div>
+            <div id="scramble-text1"  class="scramble-text"></div>
+        </div>
 
-    <!-- TIMER -->
-    <div id="timer" class="timer idle">
-        <span id="time">0.00</span>
-    </div>
+        <div id="timer" class="timer idle">
+            <span id="time1" class="time">0.00</span>
+        </div>
 
-    <!-- RIGHT PANEL -->
-    <div class="right-panel">
-
-    <div class="bestof">
-        <div class="bestof-title">{% trans "AVG of 5" %}</div>
-        <div id="avg">-</div>
-        <div id="times" class="times-list"></div>
-    </div>
-
-
-
-        <!-- REALISTIC 2x2 NET -->
+        <div class="right-panel">
+        <div class="bestof">
+            <div class="bestof-title">{% trans "AVG of 5" %}</div>
+            <div id="avg">-</div>
+            <div id="times" class="times-list"></div>
+        </div>
         <div class="cube">
             <div class="root-cont grid-cont">
                 <div class="root1 grid-color"></div>
@@ -144,9 +135,127 @@
                 <div class="root4 grid-color"></div>
             </div>
         </div>
+        </div>
 
     </div>
+    <div class="timer-page-mobile">
 
+        <div class="scramble">
+            <div class="scramble-title">{% trans "Scramble" %}</div>
+            <div id="scramble-text2" class="scramble-text"></div>
+        </div>
+
+        <div id="timer2" class="timer idle">
+            <span id="time2" class="time">0.00</span>
+        </div>
+
+
+        <div class="bestof">
+            <div class="bestof-title">{% trans "AVG of 5" %}</div>
+            <div id="avg">-</div>
+            <div id="times" class="times-list"></div>
+        </div>
+        <div class="cube">
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="yellow-cont grid-cont">
+                <div class="yellow1 grid-color" id="y5"></div>
+                <div class="yellow2 grid-color" id="y6"></div>
+                <div class="yellow3 grid-color" id="y7"></div>
+                <div class="yellow4 grid-color" id="y8"></div>
+            </div>
+            
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+            
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+            
+            <div class="red-cont grid-cont">
+                <div class="red1 grid-color" id="r5"></div>
+                <div class="red2 grid-color" id="r6"></div>
+                <div class="red3 grid-color" id="r7"></div>
+                <div class="red4 grid-color" id="r8"></div>
+            </div>
+
+            <div class="green-cont grid-cont">
+                <div class="green1 grid-color" id="g5"></div>
+                <div class="green2 grid-color" id="g6"></div>
+                <div class="green3 grid-color" id="g7"></div>
+                <div class="green4 grid-color" id="g8"></div>
+            </div>
+
+            <div class="orange-cont grid-cont">
+                <div class="orange1 grid-color" id="o5"></div>
+                <div class="orange2 grid-color" id="o6"></div>
+                <div class="orange3 grid-color" id="o7"></div>
+                <div class="orange4 grid-color" id="o8"></div>
+            </div>
+
+            <div class="blue-cont grid-cont">
+                <div class="blue1 grid-color" id="b5"></div>
+                <div class="blue2 grid-color" id="b6"></div>
+                <div class="blue3 grid-color" id="b7"></div>
+                <div class="blue4 grid-color" id="b8"></div>
+            </div>
+            
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="white-cont grid-cont">
+                <div class="white1 grid-color" id="w5"></div>
+                <div class="white2 grid-color" id="w6"></div>
+                <div class="white3 grid-color" id="w7"></div>
+                <div class="white4 grid-color" id="w8"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+
+            <div class="root-cont grid-cont">
+                <div class="root1 grid-color"></div>
+                <div class="root2 grid-color"></div>
+                <div class="root3 grid-color"></div>
+                <div class="root4 grid-color"></div>
+            </div>
+        </div>
+
+    </div>
     <!-- HIDDEN FORM -->
     <form id="solve-form">
         {% csrf_token %}
@@ -164,7 +273,6 @@
         });
     </script>
 
-</div>
 {% endblock %}
 
 {% block extra_css %}

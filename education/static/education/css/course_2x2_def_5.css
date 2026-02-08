@@ -28,7 +28,7 @@
 }
 
 .text {
-  width: 634px;
+  width: 100%;
   font-family: Inter, sans-serif;
   color: rgb(255,255,255);
   border-color: transparent;
@@ -37,4 +37,18 @@
 
 #the-cube-is-assembled{
     background-color: rgba(187, 59, 59, 0.9);
+}
+
+@media (max-width: 768px){
+  .main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  margin-top: 60px;
+  padding: 0 5px;
+}
+
 }

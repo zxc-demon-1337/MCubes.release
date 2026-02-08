@@ -16,9 +16,6 @@
   gap: 20px;
 }
 
-/* .tutorial-content:last-child {
-    margin-bottom: 20px;
-} */
 
 .title {
   text-align: center;
@@ -59,4 +56,36 @@
 
 #setting-the-corners-of-the-second-layer {
     background-color: rgba(187, 59, 59, 0.9);
+}
+
+.tutorial-content-mobile{display: none;}
+
+@media (max-width: 768px){
+    .tutorial-content{display: none;}
+.card{
+  height: 196px;
+  width: 180px;
+  justify-content: flex-start;
+}
+.cube-face{
+  height: 108px;
+  width: 108px;
+}
+
+.text{
+  width: 100%;
+}
+.tutorial-content-mobile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 0 5px;
+}
+.video-wrapper{
+  height: 206px;
+}
 }

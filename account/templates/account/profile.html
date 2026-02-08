@@ -28,7 +28,7 @@
               </div>
               <div class="input-row">
                 <span class="label">{% trans "Password" %}</span>
-                <span class="value-span">****************</span>
+                <span class="value-span">*******</span>
                 <button class="change-btn"  data-field="password">{% trans "Change" %}</button>
               </div>
               <div class="input-row">
@@ -42,11 +42,11 @@
                 </form>
             </div>
           </div>
-          <span>
+          <span style="height: 200px; width: 200px;" class="avatar1">
             {% if user.avatar %}
-                <img  src="{{ user.avatar.url }}" alt="Avatar">
+                <img style="height: 200px; width: 200px; border-radius: 20px;" src="{{ user.avatar.url }}" alt="Avatar">
             {% else %}
-                <img src="{% static 'avatars/default.png' %}" alt="Avatar">
+                <img style="height: 200px; width: 200px;" src="{{ MEDIA_URL }}avatars/default.png" alt="Avatar"  height="200" width="200" >
             {% endif %}
           </span>
         </div>
@@ -55,7 +55,6 @@
 </div>
 
 <script>
-// CHANGE / CANCEL
 document.querySelectorAll('.change-btn').forEach(button => {
     button.dataset.mode = 'view';
 
@@ -80,7 +79,6 @@ document.querySelectorAll('.change-btn').forEach(button => {
 });
 
 
-// SWITCH TO EDIT
 function switchToEdit(field, valueEl, button) {
     const currentValue = valueEl.textContent?.trim() || '';
     button._originalValue = currentValue;
@@ -106,50 +104,48 @@ function switchToEdit(field, valueEl, button) {
 
     valueEl.innerHTML = inputHtml;
 
-    // avatar handlers
     if (field === 'avatar') {
     const fileInput = valueEl.querySelector('.edit-input');
     const fileButton = valueEl.querySelector('.custom-file-button');
     const fileText = valueEl.querySelector('.custom-file-text');
-    const MAX_SIZE = 10 * 1024 * 1024; // 10 МБ
-    const MAX_DIMENSION = 500;
+    const MAX_SIZE = 10 * 1024 * 1024;
+    const MAX_DIMENSION = 1000;
 
     fileButton.addEventListener('click', () => fileInput.click());
 
     fileInput.addEventListener('change', () => {
         fileText.textContent = 'Файл не выбран';
-        fileInput.dataset.valid = 'false'; // Сброс статуса валидности
+        fileInput.dataset.valid = 'false';
 
         const file = fileInput.files[0];
         if (!file) return;
 
-        // Проверка 1: Размер файла
+
         if (file.size > MAX_SIZE) {
             alert('❌ Размер файла превышает 10 МБ. Выберите изображение поменьше.');
             fileInput.value = '';
             return;
         }
 
-        // Проверка 2: Тип файла (дополнительная защита)
+
         if (!file.type.match(/^image\//)) {
             alert('❌ Файл должен быть изображением (JPEG, PNG, GIF и т.д.).');
             fileInput.value = '';
             return;
         }
 
-        // Проверка 3: Размеры изображения (асинхронно)
         const img = new Image();
         const objectUrl = URL.createObjectURL(file);
 
         img.onload = () => {
-            URL.revokeObjectURL(objectUrl); // Освобождаем память
+            URL.revokeObjectURL(objectUrl);
             if (img.width > MAX_DIMENSION || img.height > MAX_DIMENSION) {
                 alert(`❌ Изображение слишком большое. Максимальный размер: ${MAX_DIMENSION}×${MAX_DIMENSION} пикселей.`);
                 fileInput.value = '';
                 fileText.textContent = 'Файл не выбран';
             } else {
                 fileText.textContent = file.name;
-                fileInput.dataset.valid = 'true'; // Флаг валидности
+                fileInput.dataset.valid = 'true'; 
             }
         };
 
@@ -172,7 +168,6 @@ function switchToEdit(field, valueEl, button) {
 }
 
 
-// SWITCH TO VIEW (CANCEL)
 function switchToView(field, valueEl, button) {
     const row = button.closest('.input-row');
     const saveBtn = row.querySelector('.save-btn');
@@ -190,7 +185,6 @@ function switchToView(field, valueEl, button) {
 }
 
 
-// SAVE
 document.addEventListener('click', function (e) {
     if (!e.target.classList.contains('save-btn')) return;
 
@@ -208,7 +202,6 @@ document.addEventListener('click', function (e) {
         return;
     }
 
-    // Добавить ПЕРЕД: const formData = new FormData();
     if (field === 'avatar') {
         const fileInput = valueEl.querySelector('.edit-input');
         const file = fileInput?.files[0];
@@ -219,13 +212,11 @@ document.addEventListener('click', function (e) {
             return;
         }
 
-        // Повторная проверка размера (защита от обхода)
         if (file.size > MAX_SIZE) {
             alert('❌ Размер файла превышает 10 МБ');
             return;
         }
 
-        // Проверка флага валидности (установлен в обработчике выбора)
         if (fileInput.dataset.valid !== 'true') {
             alert('⚠️ Изображение не прошло проверку. Убедитесь, что размер не превышает 500×500 пикселей.');
             return;
@@ -259,7 +250,7 @@ document.addEventListener('click', function (e) {
         } 
         else {
             let displayValue = data.new_value;
-            if (field === 'password') displayValue = '****************';
+            if (field === 'password') displayValue = '*******';
 
             valueEl.innerHTML = `<span class="value-span">${displayValue}</span>`;
         }

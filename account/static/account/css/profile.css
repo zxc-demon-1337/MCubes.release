@@ -146,11 +146,11 @@ body {
   background: #6a94fc;
 }
 
-.avatar {
+.avatar1 {
   width: 300px;
   height: 300px;
   border-radius: 15px;
-  background-color: #4076ff;
+  background-color: transparent
 }
 
 .custom-file-upload {
@@ -171,4 +171,29 @@ body {
 .custom-file-text {
     margin-left: 10px;
     color: #fff;
+}
+
+@media (max-width:768px) {
+  .avatar1{
+    display: none;
+  }
+  .profile-wrapper{
+    width: 100%;
+    padding: 10px;
+  }
+  .main-container, .profile-card, .info-section, .input-row, .sign-out-btn{
+    width: 100%;
+  }
+  .profile-card{
+    min-width: auto;
+  }
+  .info-section{
+    margin: 0 10px;
+  }
+  .main-container *{
+    font-size: 14px;
+  }
+  .title{
+    font-size: 36px;
+  }
 }

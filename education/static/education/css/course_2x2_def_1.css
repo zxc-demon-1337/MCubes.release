@@ -1,4 +1,3 @@
-/* Main Content */
 .content1 {
   display: flex;
   flex-direction: column;
@@ -17,7 +16,6 @@
 .note{
   font-size: 1rem;
 }
-/* Grid of Cards */
 .grid {
   display: flex;
   flex-direction: column;
@@ -46,5 +44,36 @@
 
 .cool-card{
   height: 272px;
-  /* height: fit-content; */
+}
+.grid-mobile{display: none;}
+
+@media (max-width: 768px) {
+
+  .grid{display: none;}
+
+  
+.content1{
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+}
+.card{
+  height: fit-content;
+  width: 180px;
+}
+.cool-card{
+  height: 245px;
+}
+.cube-face{
+  height: 108px;
+  width: 108px;
+}
+.grid-mobile{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.vid-label{
+  padding: 0 5px;
+}
 }

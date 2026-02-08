@@ -1,3 +1,8 @@
+function isMobile() {
+    return window.innerWidth <= 768;
+}
+
+if (!isMobile){
 document.querySelectorAll('.cube-card').forEach(card => {
   const layers = card.querySelectorAll('[data-depth]');
   
@@ -56,3 +61,6 @@ document.querySelectorAll('.cube-card').forEach(card => {
     targetY = 0;
   });
 });
+
+}
+

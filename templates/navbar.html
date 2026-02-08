@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="container">
-    <aside class="sidebar">
+    <aside class="sidebar-desktop">
         <div class="toc">
             <span id="introduction" class="span-li card-button" data-href="{% url 'course_2x2_def_introduction' %}"><a href="">{% trans "Introduction" %}</a></span>
             <span id="the-language-of-rotations" class="span-li card-button" data-href="{% url 'course_2x2_def_1' %}"><a href="">{% trans "The language of rotations" %}</a></span>
@@ -21,6 +21,19 @@
             <span id="the-cube-is-assembled" class="span-li card-button" data-href="{% url 'course_2x2_def_5' %}"><a href="">{% trans "The cube is assembled!" %}</a></span>
         </div>
     </aside>
+    <div class="sidebar-mobile">
+        <aside class="sidebar">
+            <div class="toc">
+                <span id="introduction" class="span-li card-button" data-href="{% url 'course_2x2_def_introduction' %}"><a href="">{% trans "Introduction" %}</a></span>
+                <span id="the-language-of-rotations" class="span-li card-button" data-href="{% url 'course_2x2_def_1' %}"><a href="">{% trans "The language of rotations" %}</a></span>
+                <span id="the-first-side" class="span-li card-button" data-href="{% url 'course_2x2_def_2' %}"><a href="">{% trans "The first side" %}</a></span>
+                <span id="setting-the-corners-of-the-second-layer" class="span-li card-button" data-href="{% url 'course_2x2_def_3' %}"><a href="">{% trans "Setting the corners of the second layer" %}</a></span>
+                <span id="rotate-the-corners-of-the-second-layer" class="span-li card-button" data-href="{% url 'course_2x2_def_4' %}"><a href="">{% trans "Rotate the corners of the second layer" %}</a></span>
+                <span id="the-cube-is-assembled" class="span-li card-button" data-href="{% url 'course_2x2_def_5' %}"><a href="">{% trans "The cube is assembled!" %}</a></span>
+            </div>
+        </aside>
+    <span class="sidebar-btn"></span>
+    </div>
     <div class="cont">
         {% block container %}
         {% endblock %}

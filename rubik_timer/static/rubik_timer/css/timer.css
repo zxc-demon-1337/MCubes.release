@@ -1,5 +1,4 @@
 .timer-page {
-    flex: 1;
     width: 100%;
     position: relative;
     display: flex;
@@ -7,7 +6,6 @@
     align-items: center;
 }
 
-/* SCRAMBLE */
 .scramble {
     margin-top: 30px;
     text-align: center;
@@ -24,7 +22,6 @@
 .bestof{
     height: 152px;
 }
-/* TIMER */
 .timer {
     margin-top: 120px;
     font-size: 120px;
@@ -37,7 +34,6 @@
 .timer.ready { color: #00ff00; }
 .timer.running { color: red; }
 
-/* RIGHT PANEL */
 .right-panel {
     position: absolute;
     right: 40px;
@@ -45,13 +41,11 @@
     text-align: right;
 }
 
-/* TIMES */
 #times div {
     opacity: .6;
     line-height: 1.4;
 }
 
-/* CUBE */
 .cube {
     margin-top: 100px;
     display: grid;
@@ -68,7 +62,6 @@
 
 
 
-/* HINT */
 .hint {
     position: absolute;
     bottom: 20px;
@@ -150,7 +143,6 @@ body{
 }
 
 
-/* Оверлей */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -164,7 +156,6 @@ body{
     z-index: 1000;
 }
 
-/* Модальное окно */
 .modal {
     display: flex;
     justify-content: center;
@@ -179,21 +170,18 @@ body{
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Заголовок */
 .modal h2 {
     color: #333;
     margin-bottom: 20px;
     font-size: 24px;
 }
 
-/* Текст */
 .modal p {
     color: white;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
-/* Кнопка */
 .modal-btn {
     padding: 12px 28px;
     background: #00ccff;
@@ -210,4 +198,31 @@ body{
 .modal-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+.timer-page-mobile{display: none;}
+
+
+
+@media (max-width: 768px){
+    .timer-page{display: none;}
+    .timer-page-mobile{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-top: 150px;
+    }
+    .modal p{
+        font-size: 14px;
+    }
+    .timer{
+        user-select: auto;
+        touch-action: manipulation;
+    }
 }

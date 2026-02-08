@@ -19,7 +19,7 @@
         <div class="card card-library">
             <h2 class="card-title">{% trans "Library" %}</h2>
             <p class="card-desc">{% trans "Here you will find a collection of all formulas." %}</p>
-            <div class="card-button">==&gt;</div>
+            <div class="card-button" data-href="{% url 'comingsoon' %}">==&gt;</div>
         </div>
         <div class="card card-timer">
             <h2 class="card-title">{% trans "Timer" %}</h2>
@@ -32,7 +32,7 @@
             <div class="card-button" data-href="{% url 'stats:history' %}">==&gt;</div>
         </div>
     </div>
-    <p class="footer-text">{% trans "Choose what you need and go ahead to conquer the heights!" %}</p>
+    <h1 class="footer-text">{% trans "Choose what you need and go ahead to conquer the heights!" %}</h1>
 </main>
 <script src="{% static 'home/js/home.js' %}"></script>
 {% endblock %}

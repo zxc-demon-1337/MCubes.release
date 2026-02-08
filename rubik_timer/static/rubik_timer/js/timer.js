@@ -1,5 +1,7 @@
 
-scrambleText = document.getElementById('scramble-text')
+scrambleText1 = document.getElementById('scramble-text1')
+scrambleText2 = document.getElementById('scramble-text2')
+
 
 
 //------------------ ScrambleFormula
@@ -29,7 +31,6 @@ function generate2x2Scramble() {
   }
 
   return scramble.join(' ');
-    // return("F' U' R D2 R' D' L2 F2 L'")
 }
 //------------------ ScrambleFormula
 
@@ -339,7 +340,7 @@ function RenderCube(Scramble){
 
     //------------------Coloring------------------//
 
-    Elements = [
+    Elements1 = [
     document.getElementById("y1"), //u1
     document.getElementById("y2"), //u2
     document.getElementById("y3"), //u3
@@ -369,9 +370,39 @@ function RenderCube(Scramble){
     document.getElementById("b2"), //b2
     document.getElementById("b3"), //b3
     document.getElementById("b4"), //b4
-
     ]
 
+    Elements2 = [
+    document.getElementById("y5"), //u1
+    document.getElementById("y6"), //u2
+    document.getElementById("y7"), //u3
+    document.getElementById("y8"), //u4
+
+    document.getElementById("r8"), //l1
+    document.getElementById("r6"), //l2
+    document.getElementById("r7"), //l3
+    document.getElementById("r8"), //l4
+
+    document.getElementById("g5"), //f1
+    document.getElementById("g6"), //f2
+    document.getElementById("g7"), //f3
+    document.getElementById("g8"), //f4
+
+    document.getElementById("o5"), //r18
+    document.getElementById("o6"), //r2
+    document.getElementById("o7"), //r3
+    document.getElementById("o8"), //r4
+
+    document.getElementById("w5"), //b1
+    document.getElementById("w6"), //b2
+    document.getElementById("w7"), //b3
+    document.getElementById("w8"), //b4
+
+    document.getElementById("b5"), //b1
+    document.getElementById("b6"), //b2
+    document.getElementById("b7"), //b3
+    document.getElementById("b8"), //b4
+    ]
 
     function getScramble() {
         let scrEnd = "";
@@ -396,13 +427,18 @@ function RenderCube(Scramble){
 
     scrambleByForm(Scramble)
     colorPosition = getScramble()
-    scrambleText.textContent = Scramble;
+    scrambleText1.textContent = Scramble;
+    scrambleText2.textContent = Scramble;
     console.log("scramble:", Scramble)
 
     for (let i = 0; i < colorPosition.length; i ++){
-        Elements[i].style.backgroundColor = colors[colorPosition[i]]
+        Elements1[i].style.backgroundColor = colors[colorPosition[i]]
+    }
+    for (let i = 0; i < colorPosition.length; i ++){
+        Elements2[i].style.backgroundColor = colors[colorPosition[i]]
     }
 }
+
 
 /* ---------------- TIMER LOGIC ---------------- */
 
@@ -413,45 +449,85 @@ let inspectionInterval = null;
 let inspectionTime = 15;
 let times = [];
 
-const timer = document.getElementById('timer');
-const timeEl = document.getElementById('time');
-const timesEl = document.getElementById('times');
+const timer = document.querySelectorAll('.timer');
+const timeEl = document.querySelectorAll('.time');
+const timesEl = document.querySelectorAll('.times-list');
+console.log(timeEl)
 
-document.addEventListener('keydown', e => {
-    if (e.code !== 'Space') return;
-    e.preventDefault();
+if (window.innerWidth <= 768) {
+    console.log("window.innerWidth", window.innerWidth);
+    
+    timer[1].addEventListener('click', e => {
+        e.preventDefault();
+        console.log("clicked, state:", state);
+        
+        if (state === 'idle') {
+            startInspection();
+        } else if (state === 'ready') {
+            startTimer();
+        } else if (state === 'running') {
+            stopTimer();
+        }
+    }, { passive: false });
+    
+    timer[1].addEventListener('touchend', e => {
+        e.preventDefault();
+        console.log("touchend, state:", state);
+        
+        if (state === 'idle') {
+            startInspection();
+        } else if (state === 'ready') {
+            startTimer();
+        } else if (state === 'running') {
+            stopTimer();
+        }
+    }, { passive: false });
+    
+} else {
+    document.addEventListener('keydown', e => {
+        if (e.code !== 'Space') return;
+        e.preventDefault();
 
-    if (state === 'idle') {
-        startInspection();
-    } 
-    else if (state === 'running') {
-        stopTimer();
-    }
-});
+        if (state === 'idle') {
+            startInspection();
+        } 
+        else if (state === 'running') {
+            stopTimer();
+        }
+    });
 
-document.addEventListener('keyup', e => {
-    if (e.code !== 'Space') return;
-    e.preventDefault();
+    document.addEventListener('keyup', e => {
+        if (e.code !== 'Space') return;
+        e.preventDefault();
 
-    if (state === 'ready') {
-        startTimer();
-    }
-});
+        if (state === 'ready') {
+            startTimer();
+        }
+    });
+
+
+}
+
+
 
 
 function startInspection() {
     state = 'inspection';
-    timer.className = 'timer inspection';
+    timer[0].className = 'timer inspection';
+    timer[1].className = 'timer inspection';
     let t = inspectionTime;
-    timeEl.textContent = t.toFixed(2);
-
+    timeEl[0].textContent = t.toFixed(2);
+    timeEl[1].textContent = t.toFixed(2);
     inspectionInterval = setInterval(() => {
         t -= 0.01;
-        timeEl.textContent = t.toFixed(2);
+        timeEl[0].textContent = t.toFixed(2);
+        timeEl[1].textContent = t.toFixed(2);
         if (t <= 0) {
             clearInterval(inspectionInterval);
-            timer.className = 'timer ready';
-            timeEl.textContent = '0.00';
+            timer[0].className = 'timer ready';
+            timer[1].className = 'timer ready';
+            timeEl[0].textContent = '0.00';
+            timeEl[1].textContent = '0.00';
             state = 'ready';
         }
     }, 10);
@@ -459,11 +535,13 @@ function startInspection() {
 
 function startTimer() {
     state = 'running';
-    timer.className = 'timer running';
+    timer[0].className = 'timer running';
+    timer[1].className = 'timer running';
     startTime = Date.now();
 
     timerInterval = setInterval(() => {
-        timeEl.textContent = ((Date.now() - startTime) / 1000).toFixed(2);
+        timeEl[0].textContent = ((Date.now() - startTime) / 1000).toFixed(2);
+        timeEl[1].textContent = ((Date.now() - startTime) / 1000).toFixed(2);
     }, 10);
 }
 
@@ -479,7 +557,8 @@ function renderTimes() {
 function stopTimer() {
     clearInterval(timerInterval);
     state = 'idle';
-    timer.className = 'timer idle';
+    timer[0].className = 'timer idle';
+    timer[1].className = 'timer idle';
 
     const finalTime = parseFloat(timeEl.textContent);
 
@@ -502,7 +581,7 @@ function calculateAo5() {
     }
 
     const sorted = [...times].sort((a, b) => a - b);
-    const trimmed = sorted.slice(1, 4); // убрали лучший и худший
+    const trimmed = sorted.slice(1, 4);
     const avg = trimmed.reduce((a, b) => a + b, 0) / 3;
 
     document.getElementById('avg').textContent = avg.toFixed(2);
@@ -531,5 +610,6 @@ function saveSolve(time) {
 
 scramble = generate2x2Scramble();
 console.log(scramble)
-scrambleText.textContent = scramble;
+scrambleText1.textContent = scramble;
+scrambleText2.textContent = scramble;
 RenderCube(scramble);

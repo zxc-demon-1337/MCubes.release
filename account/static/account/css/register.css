@@ -142,11 +142,7 @@
     color: #fff;
 }
 
-/* .login-label{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
+
 
 .login-link span {
   width: 300px;
@@ -161,14 +157,7 @@
 }
 
 
-/* .form-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-} */
+
 
 .form-group {
     margin-bottom: 15px;
@@ -217,8 +206,7 @@
     left: 0;
     top: 0;
     opacity: 0;
-    /* width: 100%;
-    height: 100%; */
+
     cursor: pointer;
     z-index: 2;
 }
@@ -277,4 +265,14 @@
     border-color: #00FF6F;
 }
 
-
+@media (max-width:768px){
+    .main-container, .content, .form-wrapper, .form-card, .input-section, .form-field, .mb-3 input, .register-btn, .custom-file-label, .login-link{
+        width: 100%;
+    }
+    .login-link{
+        font-size: 14px;
+    }
+    .form-wrapper{
+        padding: 0 10px ;
+    }
+}

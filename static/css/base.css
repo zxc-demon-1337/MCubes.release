@@ -172,7 +172,7 @@ body {
 }
 
 #link-about-us:hover{
-    color: #c0a448;
+    color: #ffad21;
     transition: color .5s ease;
 }
 
@@ -181,8 +181,80 @@ body {
     transition: color .5s ease;
 }
 
-.avavtar{
+.avatar{
     height: 40px;
     width: 40px;
     border-radius: 25px;
+}
+
+.burger-menu{
+    display: none;
+}
+
+
+
+
+.navbar-mobile {
+    display: none;
+
+}
+
+@media (max-width: 768px) {
+ .desktop{
+    display: none;
+ }
+ .navbar-mobile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    background-color: #212121;
+    width: 100%;
+    text-decoration: none;
+    position: absolute;
+ }
+ .navbar{
+    display: none;
+ }
+
+
+ .burger{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: transparent;
+ }
+
+ .burger span{
+    height: 4px;
+    width: 20px;
+    background-color: white;
+    border-radius: 10px;
+ }
+
+ .burger-menu{
+    position: absolute;
+    z-index: 100;
+    top: 50px;
+    background-color: #212121;
+    height: fit-content;
+    width: 100%;
+    justify-content: center;
+ }
+
+ .nav-links-burger{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 5px 0 ;
+    align-items: center;
+ }
+ .content{
+    margin-top: 50px
+ }
+ .avatar-container-mobile{
+    height: 40px;
+    width: 40px;
+ }
 }

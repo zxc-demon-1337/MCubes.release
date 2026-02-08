@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<div class="main-container">
+    <h1>{% trans "About us" %}</h1>
+    <p>{% trans "MCubes — это учебный проект, созданный в рамках изучения веб-разработки. Здесь я применяю знания по JavaScript, CSS и работе с интерфейсами, чтобы сделать что-то полезное и интересное." %}</p>
+    <p>{% trans "Это не коммерческий продукт и не стартап. Просто школьник из Москвы, который увлекается программированием и кубиком Рубика, решил собрать воедино теорию и практику. Каждая строка кода написана самостоятельно, каждый баг исправлен вручную, и каждый новый функционал — это шаг вперёд в освоении веб-технологий." %}</p>
+    <p>{% trans "Спасибо, что пользуетесь моис проектом!" %}</p>
+    <p class="PS">Елагин Егор, 11 класс</p>
+</div>
+<style>
+    #link-about-us{color: #ffad21;}
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 40px;
+        width: 80%;
+        height: 100%;
+        padding: 80px 10px 0 10px;
+    }
+</style>
+{% endblock %}

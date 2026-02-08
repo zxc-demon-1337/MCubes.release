@@ -1,4 +1,3 @@
-// Создаём и добавляем стили
 const style = document.createElement('style');
 style.textContent = `
 
@@ -8,9 +7,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Оборачиваем основной код в обработчик загрузки DOM
 document.addEventListener('DOMContentLoaded', () => {
-  // Основной функционал видео
   document.querySelectorAll('.video-wrapper').forEach(card => {
     const video = card.querySelector('video');
     if (!video) return;
@@ -19,16 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let playTimeout = null;
     let resetTimeout = null;
 
-    // Запуск/остановка видео по клику
     card.addEventListener('click', () => {
-      // Очищаем предыдущий таймаут запуска, если он есть
       if (playTimeout) {
         clearTimeout(playTimeout);
         playTimeout = null;
         card.classList.remove('playing');
       }
 
-      // Очищаем таймаут сброса, если он есть
       if (resetTimeout) {
         clearTimeout(resetTimeout);
         resetTimeout = null;
@@ -40,10 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         isPlaying = false;
         card.classList.remove('playing');
       } else {
-        // Добавляем класс сразу для визуальной обратной связи
         card.classList.add('playing');
         
-        // Задержка 1 секунда перед запуском
         playTimeout = setTimeout(() => {
           video.play().catch(console.warn);
           isPlaying = true;
@@ -52,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Обработчик окончания видео
     video.addEventListener('ended', () => {
       resetTimeout = setTimeout(() => {
         video.currentTime = 0;
@@ -62,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 2000);
     });
 
-    // Проверка видимости видео (остановка при 50% за экраном)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.intersectionRatio < 0.5 && isPlaying) {
@@ -70,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
           video.currentTime = 0;
           isPlaying = false;
           card.classList.remove('playing');
-          // Отменяем таймаут, если видео ушло за экран
           if (playTimeout) {
             clearTimeout(playTimeout);
             playTimeout = null;
@@ -86,3 +75,24 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(card);
   });
 });
+
+const sidebar_m = document.querySelector('.sidebar-mobile')
+const sidebar_m_btn = document.querySelector('.sidebar-btn')
+let sidebar_status = "closed"
+
+function sidebar_onoff(){
+  if (sidebar_status == "closed"){
+      sidebar_m.style.left = "0px"
+      sidebar_status = "open"
+      console.log('open')
+  } else if(sidebar_status == "open"){
+      sidebar_m.style.left = "-250px"
+      sidebar_status = "closed"
+      console.log('closed')
+
+  }
+}
+
+sidebar_m_btn.addEventListener("click", () =>{
+  sidebar_onoff()
+})

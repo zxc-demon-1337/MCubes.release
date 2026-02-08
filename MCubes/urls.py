@@ -28,6 +28,9 @@ urlpatterns = [
     path('timer/', include('rubik_timer.urls')),
     path('stats/', include('stats.urls')),
     path('favicon.ico', RedirectView.as_view(url=static('favicon.ico'))),
+    path('comingsoon/', include('comingsoon.urls')),
+    path('aboutus/', include('aboutus.urls')),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

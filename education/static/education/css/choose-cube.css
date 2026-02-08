@@ -1,4 +1,5 @@
-/* Общие стили для секции выбора кубов */
+
+
 .section-title-container {
     display: flex;
     justify-content: center;
@@ -27,30 +28,29 @@
 
 .cubes-row {
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 60px; /* как у вас было */
+    gap: 60px;
     width: 1180px;
     height: 436px;
-    flex-wrap: wrap; /* на случай маленьких экранов */
 }
 
-/* --- Стили карточки --- */
 .cube-card {
     width: 250px;
-    height: 320px; /* исходная высота */
+    height: 320px;
     background: rgba(255, 238, 238, 0.18);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden; /* скрываем всё, что выходит за границы */
+    overflow: hidden;
     cursor: pointer;
     transition: height 0.3s ease;
     position: relative;
 }
 
 .cube-card:hover {
-    height: 420px; /* увеличенная высота — подберите под свои кнопки */
+    height: 420px;
 }
 
 .cube-image {
@@ -74,7 +74,7 @@
     margin: 0;
 }
 
-/* --- Кнопки (изначально скрыты) --- */
+
 .card-actions {
     display: flex;
     flex-direction: column;
@@ -91,7 +91,7 @@
     transform: translateY(0);
 }
 
-/* Стили кнопок */
+
 .card-actions span {
     padding: 10px 20px;
     background-color: rgba(255, 250, 250, 0.5);
@@ -119,7 +119,6 @@
   cursor: pointer;
 }
 
-/* сам блик */
 .card-button::before {
   content: "";
   position: absolute;
@@ -139,7 +138,6 @@
   transform: skewX(-20deg);
 }
 
-/* анимация при наведении */
 .card-button:hover::before {
   left: 150%;
   transition: left 0.6s ease;
@@ -147,4 +145,30 @@
 
 #link-education{
     color: #c04848;
+}
+
+@media (max-width: 768px) {
+
+    .content{
+        position: relative;
+        top: 45px;
+    }
+
+    .cubes-row-wrapper{
+        width: 100%;
+        height: 100%;
+    }
+    .section-title-container{
+        margin: 20px  0;
+    }
+    .cubes-row{
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .content{
+        position: relative;
+        top: 50px;
+    }
 }
