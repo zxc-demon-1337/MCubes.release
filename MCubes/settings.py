@@ -16,17 +16,35 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent  # → MCubes/
 
+def _env_bool(name: str, default: bool = False) -> bool:
+    v = os.environ.get(name)
+    if v is None:
+        return default
+    return v.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+def _env_csv(name: str) -> list[str]:
+    v = os.environ.get(name, "")
+    items = [x.strip() for x in v.split(",")]
+    return [x for x in items if x]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n6$i@__872i=tn*km3xg4fd1$7y^*-pjg+2fap)vtxwiz08&94'
+SECRET_KEY = os.environ.get(
+    "DJANGO_SECRET_KEY",
+    "django-insecure-n6$i@__872i=tn*km3xg4fd1$7y^*-pjg+2fap)vtxwiz08&94",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = _env_bool("DJANGO_DEBUG", default=True)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = _env_csv("DJANGO_ALLOWED_HOSTS")
+if not ALLOWED_HOSTS and DEBUG:
+    # Convenient default for local/dev docker usage.
+    ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = _env_csv("DJANGO_CSRF_TRUSTED_ORIGINS")
 
 
 # Application definition
@@ -50,6 +68,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -136,6 +155,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -148,13 +170,11 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
 
-# Укажите путь к bin-папке gettext, если он не в PATH
-os.environ['PATH'] = r'C:\Program Files\gettext-iconv\bin;' + os.environ['PATH']
+# Windows-only: gettext often isn't on PATH by default.
+if os.name == "nt":
+    os.environ['PATH'] = r'C:\Program Files\gettext-iconv\bin;' + os.environ['PATH']
 
 AUTH_USER_MODEL = 'account.MyAccount'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_URL = '/account/login/'  # ← Правильно
 # или

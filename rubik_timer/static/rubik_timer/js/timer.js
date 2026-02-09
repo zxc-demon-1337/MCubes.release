@@ -1,6 +1,7 @@
 
 scrambleText1 = document.getElementById('scramble-text1')
 scrambleText2 = document.getElementById('scramble-text2')
+let scramble = '';
 
 
 
@@ -546,11 +547,14 @@ function startTimer() {
 }
 
 function renderTimes() {
-    timesEl.innerHTML = '';
-    times.forEach(t => {
-        const d = document.createElement('div');
-        d.textContent = t.toFixed(2);
-        timesEl.appendChild(d);
+    // `.times-list` exists twice (desktop + mobile). Update both.
+    timesEl.forEach(list => {
+        list.innerHTML = '';
+        times.forEach(t => {
+            const d = document.createElement('div');
+            d.textContent = t.toFixed(2);
+            list.appendChild(d);
+        });
     });
 }
 
@@ -560,7 +564,8 @@ function stopTimer() {
     timer[0].className = 'timer idle';
     timer[1].className = 'timer idle';
 
-    const finalTime = parseFloat(timeEl.textContent);
+    // `timeEl` is a NodeList (desktop + mobile). Both show the same value.
+    const finalTime = parseFloat(timeEl[0].textContent);
 
     times.unshift(finalTime);
     if (times.length > 5) times.pop();
@@ -598,13 +603,18 @@ function saveSolve(time) {
         method: 'POST',
         headers: {
             'X-CSRFToken': csrfToken,
+            'X-Requested-With': 'XMLHttpRequest',
             'Content-Type': 'application/x-www-form-urlencoded',
         },
+        credentials: 'same-origin',
         body: new URLSearchParams({
             cube_type: '2x2',
-            scramble: scrambleText.textContent,
+            // Use the scramble that was shown for the current solve.
+            scramble: scramble,
             solve_time: time,
         }),
+    }).catch(err => {
+        console.error('Failed to save solve:', err);
     });
 }
 

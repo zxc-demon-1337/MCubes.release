@@ -19,9 +19,14 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import RedirectView
+from django.http import HttpResponse
+
+def healthz(_request):
+    return HttpResponse("ok", content_type="text/plain")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
+    path('healthz/', healthz, name='healthz'),
     path('', include('home.urls')),
     path('education/', include('education.urls')), 
     path('account/', include('account.urls')), 
