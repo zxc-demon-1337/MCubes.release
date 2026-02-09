@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      DJANGO_DEBUG: "1"
+      DJANGO_ALLOWED_HOSTS: "localhost,127.0.0.1,0.0.0.0,cybscb.ru,www.cybscb.ru"
+      DJANGO_CSRF_TRUSTED_ORIGINS: "https://cybscb.ru,https://www.cybscb.ru"
+      # DJANGO_SECRET_KEY: "change-me"
+    volumes:
+      - ./db.sqlite3:/app/db.sqlite3
+      - ./media:/app/media
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys,urllib.request; u='http://127.0.0.1:8000/healthz/'; sys.exit(0 if urllib.request.urlopen(u,timeout=2).read().decode('utf-8').strip()=='ok' else 1)"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 20s
