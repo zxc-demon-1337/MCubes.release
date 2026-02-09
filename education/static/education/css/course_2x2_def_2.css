@@ -94,6 +94,8 @@
     background-color: rgba(187, 59, 59, 0.9);
 }
 
+.tutorial-content-mobile{display: none;}
+
 @media (max-width: 768px){
   .tutorial-content{display: none;}
 .card{

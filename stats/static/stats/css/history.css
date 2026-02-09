@@ -128,7 +128,7 @@
 
 
 @media (max-width: 768px){
-    *{
+    content *{
         font-size: 12px;
     }
     .history-table th, .history-table td {
