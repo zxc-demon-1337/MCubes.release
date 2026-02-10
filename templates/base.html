@@ -44,7 +44,7 @@
                 <a id="link-library" href="#" class="nav-link a-button">{% trans "Library" %}</a>
                 <a id="link-timer" href="{% url 'rubik_timer:choose_timer' %}" class="nav-link a-button">{% trans "Timer" %}</a>
                 <a id="link-stats" href="{% url 'stats:history' %}" class="nav-link a-button">{% trans "Stats" %}</a>
-                <a id="link-about-us" href="#" class="nav-link a-button">{% trans "About us" %}</a>
+                <a id="link-about-us" href="{% url 'aboutus' %}" class="nav-link a-button">{% trans "About us" %}</a>
             </div>
         </div>
         <h1 class="webLogo link-button" data-href="{% url 'home' %}">MCubes</h1>
