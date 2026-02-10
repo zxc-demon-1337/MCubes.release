@@ -46,7 +46,7 @@
     position: relative;
 }
 .cube-card:hover {
-    height: 420px;
+    height: 360px;
 }
 .card-actions span {
     padding: 10px 20px;
