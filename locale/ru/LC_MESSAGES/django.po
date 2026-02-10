@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 14:56+0300\n"
+"POT-Creation-Date: 2026-02-10 22:37+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\MCubes\settings.py:143
+#: .\MCubes\settings.py:165
 msgid "English"
 msgstr ""
 
-#: .\MCubes\settings.py:144
+#: .\MCubes\settings.py:166
 msgid "Russian"
 msgstr ""
 
@@ -34,12 +34,28 @@ msgid "About us"
 msgstr "О нас"
 
 #: .\aboutus\templates\aboutus\aboutus.html:9
-msgid "MCubes is an educational project created as part of the study of web development. Here I apply my knowledge of JavaScript, CSS, and working with interfaces to make something useful and interesting."
-msgstr "MCubes — это учебный проект, созданный в рамках изучения веб-разработки. Здесь я применяю знания по JavaScript, CSS и работе с интерфейсами, чтобы сделать что-то полезное и интересное."
+msgid ""
+"MCubes is an educational project created as part of the study of web "
+"development. Here I apply my knowledge of JavaScript, CSS, and working with "
+"interfaces to make something useful and interesting."
+msgstr ""
+"MCubes — это учебный проект, созданный в рамках изучения веб-разработки. "
+"Здесь я применяю знания по JavaScript, CSS и работе с интерфейсами, чтобы "
+"сделать что-то полезное и интересное."
 
 #: .\aboutus\templates\aboutus\aboutus.html:10
-msgid "This is not a commercial product or a startup. It's just that a schoolboy from Moscow who is interested in programming and the Rubik's Cube decided to put theory and practice together. Each line of code is written independently, each bug is fixed manually, and each new feature is a step forward in mastering web technologies."
-msgstr "Это не коммерческий продукт и не стартап. Просто школьник из Москвы, который увлекается программированием и кубиком Рубика, решил объединить теорию и практику. Каждая строка кода пишется самостоятельно, каждая ошибка исправляется вручную, а каждая новая функция - это шаг вперед в освоении веб-технологий."
+msgid ""
+"This is not a commercial product or a startup. It's just that a schoolboy "
+"from Moscow who is interested in programming and the Rubik's Cube decided to "
+"put theory and practice together. Each line of code is written "
+"independently, each bug is fixed manually, and each new feature is a step "
+"forward in mastering web technologies."
+msgstr ""
+"Это не коммерческий продукт и не стартап. Просто школьник из Москвы, который "
+"увлекается программированием и кубиком Рубика, решил объединить теорию и "
+"практику. Каждая строка кода пишется самостоятельно, каждая ошибка "
+"исправляется вручную, а каждая новая функция - это шаг вперед в освоении веб-"
+"технологий."
 
 #: .\aboutus\templates\aboutus\aboutus.html:11
 msgid "Thank you for using my project!"
@@ -251,7 +267,7 @@ msgstr "Назад"
 #: .\education\templates\education\course_2x2_def_3.html:124
 #: .\education\templates\education\course_2x2_def_4.html:43
 #: .\education\templates\education\course_2x2_def_4.html:81
-#: .\education\templates\education\course_2x2_def_introduction.html:34
+#: .\education\templates\education\course_2x2_def_introduction.html:36
 msgid "Next"
 msgstr "Далее"
 
@@ -610,13 +626,17 @@ msgstr "Главная"
 msgid "Introduction"
 msgstr "Введение"
 
-#: .\education\templates\education\course_2x2_def_introduction.html:14
-#, fuzzy
-msgid "In order to learn how to assemble a Rubik's cube 2x2, you need to know the language of rotations and remember 2 formulas: the right \"bang bang\" and the left \"bang bang\""
-
-msgstr "Для того чтобы научиться собирать кубик Рубика 2x2, вам нужно знать язык вращений запомнить 2 формулы: правый \"пиф паф\" и левый \"пиф паф\""
-
 #: .\education\templates\education\course_2x2_def_introduction.html:15
+#, fuzzy
+msgid ""
+" In order to learn how to assemble a Rubik's cube 2x2, you need to know the "
+"language of rotations and remember 2 formules: the right \"bang bang\" and "
+"the left \"bang bang\" "
+msgstr ""
+"Для того чтобы научиться собирать кубик Рубика 2x2, вам нужно знать язык "
+"вращений запомнить 2 формулы: правый \"пиф паф\" и левый \"пиф паф\""
+
+#: .\education\templates\education\course_2x2_def_introduction.html:17
 msgid ""
 "The formula is a set of rotations of a Rubik's cube: RUR'U' = turn the right "
 "face clockwise, turn the upper face clockwise, turn the right face "
@@ -627,19 +647,19 @@ msgstr ""
 "грани против часовой стрелки, поворот верхней грани против часовой стрелке. "
 "Подробнее - "
 
-#: .\education\templates\education\course_2x2_def_introduction.html:15
+#: .\education\templates\education\course_2x2_def_introduction.html:17
 msgid "language of rotations"
 msgstr "язык вращений"
 
-#: .\education\templates\education\course_2x2_def_introduction.html:20
+#: .\education\templates\education\course_2x2_def_introduction.html:22
 msgid "right \"bang-bang\""
 msgstr "правый \"пиф-паф\""
 
-#: .\education\templates\education\course_2x2_def_introduction.html:25
+#: .\education\templates\education\course_2x2_def_introduction.html:27
 msgid "left \"bang-bang\""
 msgstr "левый \"пиф-паф\""
 
-#: .\education\templates\education\course_2x2_def_introduction.html:28
+#: .\education\templates\education\course_2x2_def_introduction.html:30
 msgid ""
 "You may also encounter a type 3 entry (RUR'U'), which means that the formula "
 "in parentheses (in this case RUR'U') must be repeated 3 times."
@@ -647,7 +667,7 @@ msgstr ""
 "Также вам может встретиться запись по типу 3(RUR'U'), это означает, что "
 "формулу в скобках (в данном случае RUR'U'), нужно повторить 3 раза."
 
-#: .\education\templates\education\course_2x2_def_introduction.html:29
+#: .\education\templates\education\course_2x2_def_introduction.html:31
 msgid ""
 "If you see a photo of a cube with a red border, it means that by clicking on "
 "the cube, you can view a video animation of the formula signed under it."
