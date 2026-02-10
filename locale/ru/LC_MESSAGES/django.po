@@ -627,10 +627,7 @@ msgid "Introduction"
 msgstr "Введение"
 
 #: .\education\templates\education\course_2x2_def_introduction.html:15
-msgid ""
-" In order to learn how to assemble a Rubik's cube 2x2, you need to know the "
-"language of rotations and remember 2 formules: the right \"bang bang\" and "
-"the left \"bang bang\" "
+msgid " In order to learn how to assemble a Rubik\'s cube 2x2, you need to know the language of rotations and remember 2 formules: the right \"bang bang\" and the left \"bang bang\" "
 msgstr "Для того чтобы научиться собирать кубик Рубика 2x2, вам нужно знать язык вращений запомнить 2 формулы: правый \"пиф паф\" и левый \"пиф паф\""
 
 #: .\education\templates\education\course_2x2_def_introduction.html:17
