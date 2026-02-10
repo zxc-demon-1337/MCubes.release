@@ -45,7 +45,9 @@
     transition: height 0.3s ease;
     position: relative;
 }
-
+.cube-card:hover {
+    height: 420px;
+}
 .card-actions span {
     padding: 10px 20px;
     color: white;
@@ -55,6 +57,8 @@
     cursor: pointer;
     transition: background-color 0.2s;
     background: #039BF3;
+    height: 40px;
+    width: 175px;
 }
 
 .cube-image {
