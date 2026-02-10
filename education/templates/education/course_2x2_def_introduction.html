@@ -17,12 +17,12 @@
       <span class="text">{% trans "The formula is a set of rotations of a Rubik's cube: RUR'U' = turn the right face clockwise, turn the upper face clockwise, turn the right face counterclockwise, turn the upper face counterclockwise. More detailed -"%}<a href="{% url 'course_2x2_def_1' %}">{% trans "language of rotations" %}</a></a></span>
         <div class="flex-row cards-row">
             <div class="card video-wrapper">
-            <video playsinline src="{% static 'education/videos/0/0_RURiUi.webm' %}" class="cube-face"></video>
+            <video playsinline webkit-playsinline src="{% static 'education/videos/0/0_RURiUi.webm' %}" class="cube-face"></video>
             <p>RUR'U'</p>
             <span class="instruction">{% trans 'right "bang-bang"' %}</span>
             </div>
             <div class="card video-wrapper">
-            <video playsinline src="{% static 'education/videos/0/0_LiUiLU.webm' %}" class="cube-face"></video>
+            <video playsinline webkit-playsinline src="{% static 'education/videos/0/0_LiUiLU.webm' %}" class="cube-face"></video>
             <p>L'U'LU</p>
             <span class="instruction">{% trans 'left "bang-bang"' %}</span>
             </div>
