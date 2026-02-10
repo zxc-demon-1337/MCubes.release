@@ -209,3 +209,20 @@ html{
 
 
 }
+
+@media not all and (min-resolution: 0.001dpcm) { 
+  .cube-video {
+    width: 100.000001% !important;
+    height: 100.000001% !important;
+  }
+}
+
+.cube-video::-webkit-media-controls {
+  display: none !important;
+}
+.cube-video {   
+    object-fit: contain !important;
+    -webkit-object-fit: contain !important;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+}
