@@ -70,6 +70,21 @@
 
 
 
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.cube-card:hover .card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 #link-timer{
     color: #48a4c0;
