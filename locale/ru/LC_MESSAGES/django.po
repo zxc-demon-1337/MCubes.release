@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-10 22:37+0300\n"
+"POT-Creation-Date: 2026-02-10 22:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -627,14 +627,11 @@ msgid "Introduction"
 msgstr "Введение"
 
 #: .\education\templates\education\course_2x2_def_introduction.html:15
-#, fuzzy
 msgid ""
 " In order to learn how to assemble a Rubik's cube 2x2, you need to know the "
 "language of rotations and remember 2 formules: the right \"bang bang\" and "
 "the left \"bang bang\" "
-msgstr ""
-"Для того чтобы научиться собирать кубик Рубика 2x2, вам нужно знать язык "
-"вращений запомнить 2 формулы: правый \"пиф паф\" и левый \"пиф паф\""
+msgstr "Для того чтобы научиться собирать кубик Рубика 2x2, вам нужно знать язык вращений запомнить 2 формулы: правый \"пиф паф\" и левый \"пиф паф\""
 
 #: .\education\templates\education\course_2x2_def_introduction.html:17
 msgid ""
