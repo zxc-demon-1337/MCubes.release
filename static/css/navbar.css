@@ -225,4 +225,13 @@ html{
     -webkit-object-fit: contain !important;
     image-rendering: -webkit-optimize-contrast;
     transform: translateZ(0);
+    width: 100%;
+    height: auto;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
