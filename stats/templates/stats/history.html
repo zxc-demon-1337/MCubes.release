@@ -42,7 +42,34 @@
     </div>
     
     {% else %}
-    <div class="no-solves">
+    <div class="stats-summary">
+        <div class="summary-item">
+            <span class="label">{% trans "Total solves:" %}</span>
+            <span class="value">0</span>
+        </div>
+    </div>
+    
+    <div class="table-container">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>{% trans "Cube type" %}</th>
+                    <th>{% trans "Formula" %}</th>
+                    <th>{% trans "Solve time" %}</th>
+                    <th>{% trans "Solve date" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for solve in solves %}
+                <tr>
+                    <td class="cube-type">{{ solve.get_cube_type_display }}</td>
+                    <td class="scramble">{{ solve.scramble }}</td>
+                    <td class="solve-time">{{ solve.formatted_time }}</td>
+                    <td class="solve-date">{{ solve.solved_at|date:"d.m.Y H:i:s" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
     {% endif %}
 </div>
