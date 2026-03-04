@@ -133,7 +133,7 @@ msgstr "Пароль ещё раз"
 
 #: .\account\templates\account\register.html:44
 msgid "register"
-msgstr "Регистриация"
+msgstr "Регистрация"
 
 #: .\account\templates\account\register.html:48
 msgid "Already have an account? Log in "
