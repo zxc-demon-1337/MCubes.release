@@ -84,4 +84,10 @@ a{
 .title{
   margin-top: 20px;
 }
+
+  .content1{
+      width: 100%;
+      height: fit-content;
+      margin-top: 10px;
+  }
 }
