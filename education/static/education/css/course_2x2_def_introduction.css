@@ -86,8 +86,13 @@ a{
 }
 
 .content{
-    width: 100%;
-    height: fit-content;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+  margin-top: 20px;
+  padding: 0 5px;
 }
 }
