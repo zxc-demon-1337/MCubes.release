@@ -121,7 +121,7 @@ msgstr "Выйти из аккаунта"
 
 #: .\account\templates\account\register.html:13
 msgid "Register"
-msgstr "Регистриация"
+msgstr "Регистрация"
 
 #: .\account\templates\account\register.html:16
 msgid "Hi!"
@@ -132,7 +132,7 @@ msgid "Password again"
 msgstr "Пароль ещё раз"
 
 #: .\account\templates\account\register.html:44
-msgid "register"
+msgid "рegister"
 msgstr "Регистрация"
 
 #: .\account\templates\account\register.html:48
