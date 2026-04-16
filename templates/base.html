@@ -52,7 +52,7 @@
             {% if user.avatar %}
                 <img class="avatar" src="{{ user.avatar.url }}" alt="{{ user.nickname }}">
             {% else %}
-                <img class="avatar" src="media/avatars/default.png" alt="avatar">
+                <img class="avatar" src="{% static 'default.png' %}" alt="avatar">
             {% endif %}
         </div>
     </nav>
@@ -99,7 +99,7 @@
             {% if user.avatar %}
                 <img class="avatar" src="{{ user.avatar.url }}" alt="{{ user.nickname }}">
             {% else %}
-                <img class="avatar" src="media/avatars/default.png" alt="avatar">
+                <img class="avatar" src="{% static 'default.png' %}" alt="avatar">
             {% endif %}
         </div>
     </nav>
