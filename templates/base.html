@@ -41,7 +41,7 @@
             <div class="nav-links-burger">
                 <a id="link-home" href="{% url 'home' %}" class="nav-link a-button">{% trans "Home" %}</a>
                 <a id="link-education" href="{% url 'education' %}" class="nav-link a-button">{% trans "Education" %}</a>
-                <a id="link-library" href="#" class="nav-link a-button">{% trans "Library" %}</a>
+                <a id="link-library" href="{% url 'library' %}" class="nav-link a-button">{% trans "Library" %}</a>
                 <a id="link-timer" href="{% url 'rubik_timer:choose_timer' %}" class="nav-link a-button">{% trans "Timer" %}</a>
                 <a id="link-stats" href="{% url 'stats:history' %}" class="nav-link a-button">{% trans "Stats" %}</a>
                 <a id="link-about-us" href="{% url 'aboutus' %}" class="nav-link a-button">{% trans "About us" %}</a>
@@ -78,7 +78,7 @@
             <div class="nav-links">
                 <a id="link-home" href="{% url 'home' %}" class="nav-link a-button">{% trans "Home" %}</a>
                 <a id="link-education" href="{% url 'education' %}" class="nav-link a-button">{% trans "Education" %}</a>
-                <a id="link-library" href="{% url 'comingsoon' %}" class="nav-link a-button">{% trans "Library" %}</a>
+                <a id="link-library" href="{% url 'library' %}" class="nav-link a-button">{% trans "Library" %}</a>
                 <a id="link-timer" href="{% url 'rubik_timer:choose_timer' %}" class="nav-link a-button">{% trans "Timer" %}</a>
                 <a id="link-stats" href="{% url 'stats:history' %}" class="nav-link a-button">{% trans "Stats" %}</a>
                 <a id="link-about-us" href="{% url 'aboutus' %}" class="nav-link a-button">{% trans "About us" %}</a>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css%}
+<link rel="stylesheet" href="{% static 'library/css/choose.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="contentainer">
+<div class="section-title-container">
+    <h1 class="section-title">{% trans "What do you need?" %}</h1>
+</div>
+
+<div class="cubes-row-wrapper">
+    <div class="cubes-row">
+        <div class="card-button cube-card a-button" data-href="{% url 'def_2x2' %}">
+            <img src="{% static 'education/images/2x2-img-1.png' %}" alt="2x2 Cube" class="cube-image">
+            <div class="cube-label">
+                <h3>2x2 {%trans  'For beginners' %}</h3>
+            </div>
+        </div>
+        <div class="card-button cube-card a-button" data-href="{% url 'cll_2x2' %}">
+            <img src="{% static 'education/images/2x2-img-1.png' %}" alt="3x3 Cube" class="cube-image">
+            <div class="cube-label">
+                <h3>2x2 CLL</h3>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="{% static 'education/js/choose-cube.js' %}"></script>
+{% endblock %}

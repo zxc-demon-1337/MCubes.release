@@ -37,8 +37,9 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = _env_bool("DJANGO_DEBUG", default=True)
+# DEBUG = _env_bool("DJANGO_DEBUG", default=True)
 DEBUG = False
+
 ALLOWED_HOSTS = _env_csv("DJANGO_ALLOWED_HOSTS")
 if not ALLOWED_HOSTS and DEBUG:
     # Convenient default for local/dev docker usage.
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
     'stats',
     'comingsoon',
     'aboutus',
+    'library',
 ]
 
 MIDDLEWARE = [
@@ -106,14 +108,14 @@ WSGI_APPLICATION = 'MCubes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'OPTIONS': {
-            'timeout': 20,  # Увеличить таймаут
-        },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', 'myproject'),
+        'USER': os.environ.get('POSTGRES_USER', 'myuser'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'mypassword'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),  # имя сервиса в docker-compose
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

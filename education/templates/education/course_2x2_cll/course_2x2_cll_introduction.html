@@ -1,0 +1,25 @@
+{% extends 'education/cll_navbar.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/cll/course_2x2_cll_introduction.css' %}">
+{% endblock %}
+
+{% block container %}
+
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <h1 class="title">{% trans "Introduction" %}</h1>
+      <span class="text">
+        {% blocktrans %}Here you will master the CLL (Corners of the Last Layer) method, an advanced one—step technique that turns assembling the last layer on a 2x2 cube into a quick finale. CLL allows you to solve the entire last layer using a single algorithm immediately after completing the first layer, combining orientation and angle rearrangement into a single action. It is an indispensable tool for moving from beginner's results to a stable build in less than 10 seconds.{% endblocktrans %}
+      </span>
+      <span class="text">
+        {% blocktrans %}For convenience, the formulas are divided into different groups. Clicking on each formula will display its visualization.{% endblocktrans %}
+      </span>
+    <div class="nav-buttons">
+            <span id="the-cube-is-assembled" class="nav-button next card-button" data-href="{% url 'course_2x2_cll_1' %}">{% trans "Next" %}</span>
+    </div>
+</div>
+
+{% endblock %}

@@ -10,4 +10,9 @@ urlpatterns = [
     path('course_2x2_def_4', views.course_2x2_def_4, name='course_2x2_def_4'),
     path('course_2x2_def_5', views.course_2x2_def_5, name='course_2x2_def_5'),
 
+    path('course_2x2_cll_introduction', views.course_2x2_cll_introduction, name='course_2x2_cll_introduction'),
+    path('course_2x2_cll_1', views.course_2x2_cll_1, name='course_2x2_cll_1'),
+    path('course_2x2_cll_conclusion', views.course_2x2_cll_conclusion, name='course_2x2_cll_conclusion'),
+
+
 ]

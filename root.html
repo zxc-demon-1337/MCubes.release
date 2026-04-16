@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid">
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card"></div>
+                <div class="vid" style="display: none;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card-wrapper">
+                <div class="card"></div>
+                <div class="vid" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+.card{
+    background-color: red;
+}
+.vid{
+    background-color: blue;
+}
+
+.vid, .card{
+    height: 180px;
+    width: 180px;
+}
+</style>
+
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function() {
+            const wrapper = this.closest('.card-wrapper');
+            this.style.display = 'none';
+            wrapper.querySelector('.vid').style.display = 'block';
+        });
+    }); 
+</script>
+</html>

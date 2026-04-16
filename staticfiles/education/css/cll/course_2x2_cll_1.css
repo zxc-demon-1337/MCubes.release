@@ -1,0 +1,136 @@
+.content1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  /* position: relative */
+}
+.video{
+  display: flex;
+  height: 180px;
+  width: 180px;
+  background-color: rgb(75, 75, 75);
+  z-index: 2;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.formula_button{
+  display: block;
+  cursor: pointer;
+}
+
+.content h1,
+.content .note {
+  text-align: center;
+  margin: 20px 0;
+  line-height: 1.2;
+  color: white;
+}
+.note{
+  font-size: 1rem;
+}
+
+
+.content1{
+  gap: 40px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  /* gap: 15px; */
+  align-items: center;
+  width: fit-content;
+  justify-content: space-between;
+  background-color: #181818;
+  padding: 40px 0;
+  border-radius: 20px;
+}
+
+.grid > h2{
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 900px;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+
+
+.formula, .formula-card{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.formula > p{
+  font-size: 24px;
+}
+
+.formula-card{
+  width: 450px;
+  margin-bottom: 40px;
+}
+
+.cube-face {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+}
+
+
+
+#the-language-of-rotations {
+  background-color: rgba(187, 59, 59, 0.9);
+}
+
+.cool-card{
+  height: 272px;
+}
+.grid-mobile{display: none;}
+
+@media (max-width: 768px) {
+
+  .grid{display: none;}
+
+  
+.content1{
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+}
+.formula-card{
+  height: fit-content;
+  width: 180px;
+}
+.cool-card{
+  height: 245px;
+}
+.cube-face{
+  height: 108px;
+  width: 108px;
+}
+.grid-mobile{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.vid-label{
+  padding: 0 5px;
+}
+}
+
+img{
+  height: 180px;
+  width: 180px;
+}

@@ -1,0 +1,25 @@
+{% extends 'education/cll_navbar.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css2 %}
+<link rel="stylesheet" href="{% static 'education/css/cll/course_2x2_cll_concluson.css' %}">
+{% endblock %}
+
+{% block container %}
+
+
+<div class="main-container">
+    <div class="tutorial-content">
+      <h1 class="title">{% trans "Conclusion" %}</h1>
+      <span class="text">
+          {% blocktrans %}Congratulations on completing your CLL training! Now you have a powerful tool in your arsenal that separates amateurs from real speedcubers. You've learned to see the last layer as a whole and solve it with one lightning-fast algorithm, turning chaos into a predictable system.{% endblocktrans %}
+      </span>
+      <span class="text">
+        {% blocktrans %}Ahead is practice, honing case recognition to automatism and reducing time to 5 seconds or less. Remember: every algorithm you learn is a step towards a new personal best. {% endblocktrans %}
+      </span>
+    <div class="nav-buttons">
+            <span id="the-cube-is-assembled" class="nav-button back card-button" data-href="{% url 'course_2x2_cll_1' %}">{% trans "Back" %}</span>
+    </div>
+</div>
+
+{% endblock %}

@@ -12,9 +12,11 @@ RUN apt-get update \
         libjpeg62-turbo-dev \
         zlib1g-dev \
         libwebp-dev \
+        gettext\
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /app/requirements.txt
+
 RUN python -m pip install --upgrade pip \
     && pip install --no-cache-dir -r /app/requirements.txt
 

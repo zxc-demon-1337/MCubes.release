@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'library/css/cll_2x2.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <main class="cont">
+       <main class="content1">
+        <h1>{% trans 'For beginners' %}</h1>
+        <!-- <div class="video" style="display: none;" id="vid_wrapper">
+            <video src="" id="video" height="180" width="180" muted autoplay loop></video>
+        </div> -->
+        <div class="grid sune">
+            <h2>{% trans 'Bangs-bangs'%}</h2>
+            <div class="row"> 
+                <div class="card video-wrapper">
+                <video playsinline webkit-playsinline src="{% static 'education/videos/def/0/0_RURiUi.webm' %}" class="cube-face"></video>
+                <p>RUR'U'</p>
+                <span class="instruction">{% trans 'right "bang-bang"' %}</span>
+                </div>
+                <div class="card video-wrapper">
+                <video playsinline webkit-playsinline src="{% static 'education/videos/def/0/0_LiUiLU.webm' %}" class="cube-face"></video>
+                <p>L'U'LU</p>
+                <span class="instruction">{% trans 'left "bang-bang"' %}</span>
+                </div>
+            </div>
+        <div class="grid antisune">
+            <h2>{% trans 'Setting the corners of the second layer' %}</h2>
+            <div class="row">
+                <div class="card video-wrapper">
+                <video playsinline webkit-playsinline src="{% static 'education/videos/def/3/3_3(RURiUi)y3(LiUiLU)_1.webm' %}" class="cube-face"></video>
+                <p>3(RUR'U') y 3(L'U'LU)</p>
+                <span class="instruction">{% trans "The corners stand side by side" %}</span>
+                </div>
+                <div class="card video-wrapper">
+                <video playsinline webkit-playsinline src="{% static 'education/videos/def/3/3_3(RURiUi)y3(LiUiLU)_2.webm' %}" class="cube-face"></video>
+                <p>3(RUR'U') y 3(L'U'LU)</p>
+                <span class="instruction">{% trans "The corners stand diagonally" %}</span>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <h2>{% trans 'Rotate the corners of the second layer' %} </h2>
+            <div class="row">
+            <div class="card video-wrapper">
+            <video playsinline webkit-playsinline src="{% static 'education/videos/def/4/4_2(RURiUi).webm' %}" class="cube-face"></video>
+            <p>2(RUR'U')</p>
+            <span class="instruction">{% trans "The yellow color looks to the right side" %}</span>
+            </div>
+            <div class="card video-wrapper">
+            <video playsinline webkit-playsinline src="{% static 'education/videos/def/4/4_4(RURiUi).webm' %}" class="cube-face"></video>
+            <p>4(RUR'U')</p>
+            <span class="instruction">{% trans "The yellow color is looking at us" %}</span>
+            </div>
+            </div>
+        </div>
+    </main>
+    </main>
+    </div>
+
+    <script src="{% static 'education/js/course_2x2_def_1.js' %}"></script>
+{% endblock %}
+{% block extra_js %}
+<script src=" {% static 'education/js/def_2x2.js' %}"></script>
+{% endblock %}

@@ -35,6 +35,7 @@ urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=static('favicon.ico'))),
     path('comingsoon/', include('comingsoon.urls')),
     path('aboutus/', include('aboutus.urls')),
+    path('library/', include('library.urls')),
 
 ]
 if settings.DEBUG:

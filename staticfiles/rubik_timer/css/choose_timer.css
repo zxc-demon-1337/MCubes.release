@@ -1,0 +1,169 @@
+.section-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86px;
+}
+
+.section-title {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    line-height: 36px;
+    margin: 0;
+}
+
+.cubes-row-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 13px;
+    padding-bottom: 15px;
+}
+
+.cubes-row {
+    display: flex;
+    justify-content: center;
+    gap: 60px; 
+    width: 1180px;
+    height: 436px;
+    flex-wrap: wrap; 
+}
+.cube-card {
+    width: 250px;
+    height: 320px; 
+    background: #007DB9;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; 
+    cursor: pointer;
+    transition: height 0.3s ease;
+    position: relative;
+}
+.cube-card:hover {
+    height: 360px;
+}
+.card-actions span {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background: #039BF3;
+    height: 40px;
+    width: 175px;
+}
+
+.cube-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.cube-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 70px;
+}
+
+.cube-label p {
+    color: rgb(255, 255, 255);
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.cube-card:hover .card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#link-timer{
+    color: #48a4c0;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+
+.card-button {
+  position: relative;
+  overflow: hidden;
+
+  border: none;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.card-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+}
+
+.card-button:hover::before {
+  left: 150%;
+  transition: left 0.6s ease;
+}
+
+@media (max-width:768px) {
+    .main-content{
+        margin-top: 30px;
+        padding: 0 5px;
+    }
+    .cubes-row-wrapper{
+        height: 100%;
+    }
+    .cubes-row{
+        margin-top: 20px;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .section-title{
+        font-size: 24px;
+    }
+}

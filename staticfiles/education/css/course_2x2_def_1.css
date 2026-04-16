@@ -1,0 +1,79 @@
+.content1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.content h1,
+.content .note {
+  text-align: center;
+  margin: 20px 0;
+  line-height: 1.2;
+  color: white;
+}
+.note{
+  font-size: 1rem;
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+.cube-face {
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+}
+
+
+
+#the-language-of-rotations {
+  background-color: rgba(187, 59, 59, 0.9);
+}
+
+.cool-card{
+  height: 272px;
+}
+.grid-mobile{display: none;}
+
+@media (max-width: 768px) {
+
+  .grid{display: none;}
+
+  
+.content1{
+    width: 100%;
+    height: fit-content;
+    margin-top: 10px;
+}
+.card{
+  height: fit-content;
+  width: 180px;
+}
+.cool-card{
+  height: 245px;
+}
+.cube-face{
+  height: 108px;
+  width: 108px;
+}
+.grid-mobile{
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.vid-label{
+  padding: 0 5px;
+}
+}

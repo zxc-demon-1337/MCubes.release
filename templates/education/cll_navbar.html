@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cll_navbar.css' %}">
+{% block extra_css2 %}
+{% endblock %}
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    <aside class="sidebar-desktop">
+        <div class="toc">
+            <span id="introduction" class="span-li card-button" data-href="{% url 'course_2x2_cll_introduction' %}"><a href="">{% trans "Introduction" %}</a></span>
+            <span id="the-language-of-rotations" class="span-li card-button" data-href="{% url 'course_2x2_cll_1' %}"><a href="">{% trans "Formules" %}</a></span>
+            <span id="conclusion" class="span-li card-button" data-href="{% url 'course_2x2_cll_conclusion' %}"><a href="">{% trans "Сonclusion" %}</a></span>
+        </div>
+    </aside>
+    <div class="sidebar-mobile">
+        <aside class="sidebar">
+            <div class="toc">
+                <span id="introduction" class="span-li card-button" data-href="{% url 'course_2x2_cll_introduction' %}"><a href="">{% trans "Introduction" %}</a></span>
+                <span id="the-language-of-rotations" class="span-li card-button" data-href="{% url 'course_2x2_cll_1' %}"><a href="">{% trans "Formules" %}</a></span>
+                <span id="conclusion" class="span-li card-button" data-href="{% url 'course_2x2_cll_conclusion' %}"><a href="">{% trans "Сonclusion" %}</a></span>
+            </div>
+        </aside>
+    <span class="sidebar-btn"></span>
+    </div>
+    <div class="cont">
+        {% block container %}
+        {% endblock %}
+    </div>
+    
+</div>
+
+<script src="{% static 'js/navbar.js' %}"></script>
+{% endblock %}
