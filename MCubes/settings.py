@@ -37,8 +37,8 @@ SECRET_KEY = os.environ.get(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = _env_bool("DJANGO_DEBUG", default=True)
-DEBUG = False
+DEBUG = _env_bool("DJANGO_DEBUG", default=True)
+#DEBUG = False
 
 ALLOWED_HOSTS = _env_csv("DJANGO_ALLOWED_HOSTS")
 if not ALLOWED_HOSTS and DEBUG:
@@ -161,7 +161,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 LANGUAGES = [
     ('en', _('English')),

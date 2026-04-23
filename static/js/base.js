@@ -57,3 +57,11 @@ window.addEventListener('resize', () => {
         document.body.classList.remove('no-scroll');
     }
 });
+
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const isSafari = /safari/i.test(ua) && 
+                   !/chrome|crios|android|edg/i.test(ua) && 
+                   navigator.vendor?.includes('Apple');
+  if (isSafari) {
+    document.documentElement.classList.add('is-safari');
+  }

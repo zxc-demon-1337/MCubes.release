@@ -69,6 +69,9 @@ def update_account(request):
 
         try:
             user.save()
+            print(profile.avatar.name)      # asdasd.jpeg
+            print(profile.avatar.url)       # /media/avatars/asdasd.jpeg
+            print(profile.avatar.path) 
             if field == 'password':
                 from django.contrib.auth import update_session_auth_hash
                 update_session_auth_hash(request, user)

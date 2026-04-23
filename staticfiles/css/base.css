@@ -258,3 +258,8 @@ body {
     width: 40px;
  }
 }
+
+
+.is-safari video{
+    mix-blend-mode: screen;
+}
